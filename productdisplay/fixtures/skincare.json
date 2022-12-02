@@ -1,0 +1,13 @@
+[
+    {
+      "model": "productdisplay.SkinCareItem",
+      "pk": 1,
+      "fields": {
+        "name": "Derma365 Gentle Cleanser 100ml" ,
+        "type": "cleanser",
+        "price":"75500",
+        "tags":[2,4]
+      }
+    }
+
+  ]
