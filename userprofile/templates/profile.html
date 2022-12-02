@@ -1,0 +1,43 @@
+{% extends "base_profile.html" %} {% load crispy_forms_tags %} {% load static %} 
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="justify-content-center flex-wrap" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); border-radius: 0.5%;">
+    <div class="card-header bg-light" style="text-align: center;">
+        <h2 style="color:#2d1f2c; padding: 1em 0 0.5em 0; text-align: center; font-weight: bolder;"> {{ user.profile.name }} Profile</h2>
+        <hr style="width:100%; text-align:center;">
+        <img src="{{ user.profile.avatar.url }}" class="card-img-top rounded-circle" alt="profile picture"  style="max-height:400px;width:350px;object-fit: cover; border-radius: 1%;">
+        <br>
+    <div class="card-body">
+        <h4 class="card-title" style="text-align: center; color: #1561A7;">@{{ user.username }}</h4>
+        <h4 class="card-title-desc" style="text-align: center; color: #2d1f2c;font-weight: bolder;">{{ user.profile.name }}</h4>
+        <a href= "/profileapp/edit-profile" class="border-bottom btn btn-primary text-center"> Edit Profile</a>
+    </div>
+</div>
+    <div class="card">
+        <div class="card-body" style="text-align: center;">
+            <h3 class="card-title" style="text-align: center; color: #1561A7; font-weight:bolder;">About {{ user.profile.name }}</h3>
+            <hr style="width:100%; text-align:center;">
+            <div class="row">
+                <div class="col-sm-6" style="text-align: left;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="card-text"><i class="fa fa-envelope" style="font-size:20px;color:#155FA4"></i><b>    {{ user.profile.email }}</b></h6>
+                            <h6 class="card-text"><i class="fa fa-phone" style="font-size:24px;color:#155FA4"></i><b>   {{ user.profile.phone }}</b></h6>
+                            <h6 class="card-text"><i class="fa fa-map-marker" style="font-size:24px;color:#155FA4"></i><b>  {{ user.profile.city }}</b></h6>
+                            <hr style="width:100%; text-align:center;">
+                            <h6 class="card-text-acc"><b>account created:</b></h6>
+                            <p>{{ user.profile.created_at}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% else %}
+<h4> Please signup or login to see more! </h4>
+{% endif %}
+
+{% endblock content %}

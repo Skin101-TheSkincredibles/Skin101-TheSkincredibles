@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'userprofile.apps.UserprofileConfig',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -119,9 +121,18 @@ USE_TZ = True
 #STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 #STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
 
+# Static asset configuration
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = 'staticfiles'
+
 STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # where are uploaded files will be localted on file system
+MEDIA_URL = '/media/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
