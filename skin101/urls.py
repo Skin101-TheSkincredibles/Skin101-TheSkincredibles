@@ -15,15 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf.urls.static import static
-from django.conf import settings
-from authentication.views import index
-
 
 urlpatterns = [
-    path('', index),
     path('admin/', admin.site.urls),
-    path('auth/', include(('authentication.urls', 'authentication'), namespace='authentication')),
-    path('accounts/', include('allauth.urls')),
-    path('admin/', admin.site.urls),
+    path('', include('autentikasi.urls'))
 ]
