@@ -7,10 +7,12 @@ from django.core import serializers
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 
+
 # Create your views here.
 def profile(request):
     return render(request, 'profile.html')
-    
+
+
 @login_required
 def profileupdate(request):
     if request.method == "POST":
@@ -35,10 +37,10 @@ def profileupdate(request):
     else:
         user_form = UserUpdateForm(instance=request.user)
         profile_form = ProfileUpdateForm(instance=request.user.profile)
-        
+
     context = {
-        'user_form' : user_form,
-        'profile_form' : profile_form,
+        'user_form': user_form,
+        'profile_form': profile_form,
     }
 
     return render(request, 'edit_profile.html', context)
