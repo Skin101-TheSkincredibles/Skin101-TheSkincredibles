@@ -10,25 +10,25 @@ from .forms import LoginForm, SignupForm
 from .utils import request_schema
 from . import schema as schema
 
-def loginView(request):
-  if(request.user.is_authenticated):
-    return redirect('/home')
-  
+
+def index(request):
   prop = {
     'type': 'login',
     'form': LoginForm(),
   }
   return render(request, 'index.html', prop)
 
+def loginView(request):
+  if(request.user.is_authenticated):
+    return redirect('/home')
+
+  return index(request)
+
 def signupView(request):
   if(request.user.is_authenticated):
     return redirect('/')
-  
-  prop = {
-    'type': 'signup',
-    'form': SignupForm(),
-  }
-  return render(request, 'index.html', prop)
+
+  return index(request)
 
 def logoutView(request):
   logout(request)
