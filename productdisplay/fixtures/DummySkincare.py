@@ -18,6 +18,21 @@ from productdisplay.models import Tags
 #         name = "Atomic Habits", author = "James Clear"
 #         )
   
+# def load_initial_data(apps, schema_editor):
+#     skincare = apps.get_model('productdisplay', 'SkinCareItem')
+#     tags = apps.get_model('productdisplay', 'Tags')
+#     d = tags.objects.get(pk=4)
+#     sc = skincare.objects.create(name='Derma365 Gentle Cleanser 100ml', type='cleanser', price='75500')
+#     sc.tags.add(d)
+# class Migration(migrations.Migration):
+
+#     dependencies = [
+#         ('productdisplay', '0003_delete_display'),
+#     ]
+
+#     operations = [
+#         migrations.RunPython(load_initial_data)
+#     ]
 
 
 def main():

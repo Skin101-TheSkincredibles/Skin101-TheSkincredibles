@@ -3,77 +3,35 @@
       "model": "productdisplay.tags",
       "pk": 1,
       "fields": {
-        "name": "Oily" 
+        "name": "oily" 
       }
     },
     {
       "model": "productdisplay.tags",
       "pk": 2,
       "fields": {
-        "name": "Sensitive"
+        "name": "sensitive"
       }
     },
     {
         "model": "productdisplay.tags",
         "pk": 3,
         "fields": {
-          "name": "Normal"
+          "name": "acne"
         }
     },
     {
         "model": "productdisplay.tags",
         "pk": 4,
         "fields": {
-          "name": "Acne Prone"
+          "name": "dry"
         }
     },
     {
         "model": "productdisplay.tags",
         "pk": 5,
         "fields": {
-          "name": "Dry"
-        }
-    },
-    {
-        "model": "productdisplay.tags",
-        "pk": 6,
-        "fields": {
-          "name": "Moisturizer"
-        }
-    },
-    {
-        "model": "productdisplay.tags",
-        "pk": 7,
-        "fields": {
-          "name": "Cleanser"
-        }
-    },
-    {
-        "model": "productdisplay.tags",
-        "pk": 8,
-        "fields": {
-          "name": "Sunscreen"
-        }
-    },
-    {
-        "model": "productdisplay.tags",
-        "pk": 9,
-        "fields": {
-          "name": "Misc"
-        }
-    },
-    {
-        "model": "productdisplay.tags",
-        "pk": 10,
-        "fields": {
-          "name": "Serum"
-        }
-    },
-    {
-        "model": "productdisplay.tags",
-        "pk": 11,
-        "fields": {
-          "name": "Toner"
+          "name": "normal"
         }
     }
 
