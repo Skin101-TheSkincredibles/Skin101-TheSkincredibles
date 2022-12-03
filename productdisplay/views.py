@@ -1,7 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from productdisplay.models import Tags, SkinCareItem
-import sqlite3
 # Create your views here.
 
 def get_products(): #get all products
@@ -15,4 +13,5 @@ def index(request):
     #TES aja dibawah
     res = filter_by([2,4]).distinct()
     print(res)
-    return HttpResponse("Hello, world. You're at the polls index.")
+    context = {'products':get_products()}
+    return render(request, 'index.html', context)
