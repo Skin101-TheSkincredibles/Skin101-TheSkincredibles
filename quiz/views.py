@@ -7,7 +7,7 @@ class Quiz:
     
     def __init__(self):
         # sementara dummy dulu
-        self.list_of_moisturizer = [] # culik dari database
+        self.list_of_moisturizer = [] # culik dari database --> .objects.all()
         self.list_of_sunscreen = [] # culik dari database
         self.list_of_serum = [] # culik dari database
         self.list_of_facewash = [] # culik dari database
@@ -15,9 +15,40 @@ class Quiz:
         self.list_of_misc = [] # culik dari database
         self.list_of_tags = [] # culik dari database
 
-    # NOTE : ARTINYA ASSIGN TAG HARUS BERURUTAN!!
+        skincare = SkinCareItem.objects.all()
+        self.sort_items(skincare)
+        
 
-    def generate_recomendation(self,tags,type):
+     # untuk testing
+    def set_toner(self,list):
+        self.list_of_toner = list
+
+    # sementara, nunggu Display
+    def sort_items(self,skincare):
+
+        for item in skincare:
+
+            if item.type == 'cleanser':
+                self.list_of_facewash.append(item)
+
+            elif item.type == 'moisturizer':
+                self.list_of_moisturizer.append(item)
+            
+            elif item.type == 'sunscreen':
+                self.list_of_sunscreen.append(item)
+
+            elif item.type == 'toner':
+                self.list_of_toner.append(item)
+            
+            elif item.type == 'serum':
+                self.list_of_serum.append(item)
+
+            elif item.type == 'misc':
+                self.list_of_misc.append(item)
+
+
+    # self reminder : ASSIGN TAG HARUS BERURUTAN!!
+    def generate_recommendation(self,type,tags):
         
         products = []
         if type == 'cleanser':
@@ -52,62 +83,52 @@ class Quiz:
         return products
     
     # NOTE : Nunggu user
-    def add_to_favorite(client,product):
+    def add_to_favorite(self,client,product):
         # fave_list = client.users_favorite
         # fave_list.append(product)
         x = 1
     
-            
+    def question_session(self,request):
+
+        tags = []
+
+        type = request.POST.get('type')
+
+        oily = request.POST.get('oily')
+        if oily == 'yes':
+            tags.append('oily')
+
+        sensitive = request.POST.get('sensitive')
+        if sensitive == 'yes':
+            tags.append('sensitive')
+
+        acne = request.POST.get('acne')
+        if acne == 'yes':
+            tags.append('acne')
+
+        dry = request.POST.get('dry')
+        if dry == 'yes':
+            tags.append('dry')
+
+        # tags is empthy
+        if len(tags) == 0:
+            tags.append('normal')
+
+        return (type,tags)
+
+           
 
 quiz = Quiz()
 
-
-
 def start_session(request):
-    
-    tags = question_session(request) #gatau ahszhxbw
+    #gatau ahszhxbw
     return render(request,'quiz_session.html')
 
-
-def question_session(request):
-
-    tags = []
-
-    type = request.POST.get('type')
-#    if type == 'Pembersih/Cleanser':
-#        tags.append('cleanser')
-
-#    elif type == 'Pelembab/Moisturizer':
-#        tags.append('moisturizer')
-    
-#    elif type == 'Tabir Surya/Sunscreen':
-#        tags.append('sunscreen')
-
-#    elif type == 'Produk tambahan':
-#        tags.append('misc')
-
-
-    oily = request.POST.get('oily')
-    if oily == 'yes':
-        tags.append('oily')
-
-    sensitive = request.POST.get('sensitive')
-    if sensitive == 'yes':
-        tags.append('sensitive')
-
-    acne = request.POST.get('acne')
-    if acne == 'yes':
-        tags.append('acne')
-
-    dry = request.POST.get('dry')
-    if dry == 'yes':
-        tags.append('dry')
-    
-    # tags is empthy
-    if len(tags) == 0:
-        tags.append('normal')
-
-    return type,tags
+def generate_recommendation(request):
+    client_answer = quiz.question_session(request)
+    client_recommendation = quiz.generate_recommendation(client_answer[0],client_answer[1])
+    response = {'products': client_recommendation, 'user':request.user}
+    return render(request,'quiz_result.html',response)
 
 
 #def generate_reccomendation(tags):
