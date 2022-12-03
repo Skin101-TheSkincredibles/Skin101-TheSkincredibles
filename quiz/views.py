@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from productdisplay.models import SkinCareItem,Tags
 
+from .forms import CHOICES
+from .forms import QuizSession
+from django.http import HttpResponseRedirect
 # Create your views here.
 
 class Quiz:
@@ -19,7 +22,7 @@ class Quiz:
         self.sort_items(skincare)
         
 
-     # untuk testing
+    # untuk testing
     def set_toner(self,list):
         self.list_of_toner = list
 
@@ -88,41 +91,35 @@ class Quiz:
         # fave_list.append(product)
         x = 1
     
-    def question_session(self,request):
 
-        tags = []
-
-        type = request.POST.get('type')
-
-        oily = request.POST.get('oily')
-        if oily == 'yes':
-            tags.append('oily')
-
-        sensitive = request.POST.get('sensitive')
-        if sensitive == 'yes':
-            tags.append('sensitive')
-
-        acne = request.POST.get('acne')
-        if acne == 'yes':
-            tags.append('acne')
-
-        dry = request.POST.get('dry')
-        if dry == 'yes':
-            tags.append('dry')
-
-        # tags is empthy
-        if len(tags) == 0:
-            tags.append('normal')
-
-        return (type,tags)
 
            
 
 quiz = Quiz()
 
 def start_session(request):
-    #gatau ahszhxbw
-    return render(request,'quiz_session.html')
+#     #gatau ahszhxbw
+    if request.method == 'POST':
+
+        form = QuizSession(request.POST)
+        print('form is accepted')
+
+        if form.is_valid():
+
+            print('form is valid')
+
+            print(form.cleaned_data.get('type'))
+            tags = ['oily','sensitive','acne','dry','normal']
+            for tag in tags:
+                selected = form.cleaned_data.get(tag)
+                print(selected)
+
+            return HttpResponseRedirect('/quiz/tes')
+
+    else:
+        form = QuizSession()
+
+    return render(request,'quiz_session.html',{'form': form})
 
 def generate_recommendation(request):
     client_answer = quiz.question_session(request)
@@ -130,6 +127,34 @@ def generate_recommendation(request):
     response = {'products': client_recommendation, 'user':request.user}
     return render(request,'quiz_result.html',response)
 
+def test(request):
+        #a = ' is this ok'
+        # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = CHOICES(request.POST)
+        print('its post')
+        # check whether it's valid:
+        if form.is_valid():
+            print('form is valid')
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            selected = form.cleaned_data.get("NOMS")
+            print(selected)
+
+            return HttpResponseRedirect('/quiz')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = CHOICES()
+        
+
+    return render(request, 'tes.html', {'form': form})
+
+def next_session(request):
+    #gatau ahszhxbw
+    return render(request,'quiz_session.html')
 
 #def generate_reccomendation(tags):
 
