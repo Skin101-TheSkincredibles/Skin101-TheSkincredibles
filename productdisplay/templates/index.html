@@ -1,0 +1,10 @@
+{% if products %}
+    {% for product in products %}
+      <p>{{product.name}}</p>  
+      <p>{{product.type}}</p>  
+      <p>{{product.price}}</p> 
+      {% for tag in product.tags.all %}
+      <p>{{tag.name}}</p>  
+      {% endfor %}
+    {% endfor %}
+{% endif %}
