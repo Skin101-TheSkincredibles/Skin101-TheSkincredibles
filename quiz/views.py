@@ -7,7 +7,7 @@ class Quiz:
     
     def __init__(self):
         # sementara dummy dulu
-        self.list_of_moisturizer = [] # culik dari database
+        self.list_of_moisturizer = [] # culik dari database --> .objects.all()
         self.list_of_sunscreen = [] # culik dari database
         self.list_of_serum = [] # culik dari database
         self.list_of_facewash = [] # culik dari database
@@ -15,12 +15,39 @@ class Quiz:
         self.list_of_misc = [] # culik dari database
         self.list_of_tags = [] # culik dari database
 
-    # untuk testing
+        skincare = SkinCareItem.objects.all()
+        self.sort_items(skincare)
+        
+
+     # untuk testing
     def set_toner(self,list):
         self.list_of_toner = list
 
-    # NOTE : ARTINYA ASSIGN TAG HARUS BERURUTAN!!
+    # sementara, nunggu Display
+    def sort_items(self,skincare):
 
+        for item in skincare:
+
+            if item.type == 'cleanser':
+                self.list_of_facewash.append(item)
+
+            elif item.type == 'moisturizer':
+                self.list_of_moisturizer.append(item)
+            
+            elif item.type == 'sunscreen':
+                self.list_of_sunscreen.append(item)
+
+            elif item.type == 'toner':
+                self.list_of_toner.append(item)
+            
+            elif item.type == 'serum':
+                self.list_of_serum.append(item)
+
+            elif item.type == 'misc':
+                self.list_of_misc.append(item)
+
+
+    # self reminder : ASSIGN TAG HARUS BERURUTAN!!
     def generate_recommendation(self,type,tags):
         
         products = []
@@ -100,7 +127,7 @@ def start_session(request):
 def generate_recommendation(request):
     client_answer = quiz.question_session(request)
     client_recommendation = quiz.generate_recommendation(client_answer[0],client_answer[1])
-    response = {'products': client_recommendation}
+    response = {'products': client_recommendation, 'user':request.user}
     return render(request,'quiz_result.html',response)
 
 
