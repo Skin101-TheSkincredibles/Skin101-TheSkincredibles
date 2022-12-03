@@ -5,4 +5,5 @@ class UserprofileConfig(AppConfig):
     name = 'userprofile'
 
     def ready(self):
+        # noinspection PyUnresolvedReferences
         import userprofile.signals
