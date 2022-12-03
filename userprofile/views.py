@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render
 from django.http.response import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
@@ -21,19 +22,19 @@ def profileupdate(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            profilelist = []
-            data_dict = {}
-            data_dict['name'] = request.POST.get('name')
-            data_dict['avatar'] = request.POST.get('avatar')
-            data_dict['email'] = request.POST.get('email')
-
-            # data_dict.update(convert)
-            profilelist.append(data_dict)
-            return JsonResponse(data_dict, safe=False)
-        return redirect('user-profile')
-        #     messages.success(request, ('Your profile has been updated!'))
-        # else:
-        #     messages.error(request, ('Unable to update your profile'))
+            # profilelist = []
+            # data_dict = {}
+            # data_dict['name'] = request.POST.get('name')
+            # data_dict['avatar'] = request.POST.get('avatar')
+            # data_dict['email'] = request.POST.get('email')
+            #
+            # # data_dict.update(convert)
+            # profilelist.append(data_dict)
+            # return JsonResponse(data_dict, safe=False)
+            messages.success(request, ('Your profile has been updated!'))
+            return redirect('user-profile')
+        else:
+            messages.error(request, ('Unable to update your profile'))
     else:
         user_form = UserUpdateForm(instance=request.user)
         profile_form = ProfileUpdateForm(instance=request.user.profile)

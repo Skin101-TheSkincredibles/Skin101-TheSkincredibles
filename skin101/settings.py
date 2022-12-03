@@ -132,7 +132,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # where are uploaded files will be localted on file system
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # where are uploaded files will be located on file system
 MEDIA_URL = '/media/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

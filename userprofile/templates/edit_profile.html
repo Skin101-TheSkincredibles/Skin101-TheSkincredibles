@@ -39,28 +39,6 @@
                 <div class="order-2 p-2"> {{ profile_form.email|as_crispy_field }} </div>
               </div>
             </div>
-            <!-- #4 -->
-            </div class="container">
-              <div class="d-flex justify-content-center">
-                <div class="order-1 p-2"> {{ profile_form.phone|as_crispy_field }} </div>
-                <div class="order-2 p-2"> {{ profile_form.city|as_crispy_field }} </div>
-              </div>
-            </div>
-            <!-- #5 -->
-            <div class="container" style="font-weight: bold;">
-              <div class="d-flex justify-content-center">
-                <div class="order-1 p-2"> {{ profile_form.bio|as_crispy_field }} </div>
-              </div>
-            </div>
-            <!-- #6 -->
-            <div class="container" style="font-weight: bold;">
-              <div class="d-flex justify-content-center">
-                <div class="order-1 p-2"> {{ profile_form.status|as_crispy_field }} </div>
-                <div class="order-1 p-2"> {{ profile_form.vaccinated_status|as_crispy_field }} </div>
-              </div>
-            </div>
-          </div>
-          <br>
           <!-- #7 -->
           <div class="card-footer fw-bolder">
             <div class="d-flex justify-content-center">
@@ -68,11 +46,12 @@
                 <button class="btn btn-outline-primary" type="submit" id="btnsave" value="POST">Save Changes</button>
               </div>
               <div class="order-2 p-2">
-                <a href= "/profileapp/profile-page" class="btn btn-outline-danger" type="reset" id="btncancel">Cancel</a>
+                <a href= "/profile" class="btn btn-outline-danger" type="reset" id="btncancel">Cancel</a>
               </div>
             </div>
           </div>
       </form>
     </div>
+  </div>
 </div>
 {% endblock content %}
