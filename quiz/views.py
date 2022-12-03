@@ -108,12 +108,27 @@ def start_session(request):
 
             print('form is valid')
 
+            tags = []
+
             print(form.cleaned_data.get('type'))
-            tags = ['oily','sensitive','acne','dry','normal']
-            for tag in tags:
+            iterate = ['oily','sensitive','acne','dry']
+            for tag in iterate:
                 selected = form.cleaned_data.get(tag)
                 print(selected)
 
+                if(selected == 'True'):
+                    tags.append(Tags.objects.filter(name=tag))
+            
+            for item in tags:
+                print(item)
+            
+            if len(tags) == 0:
+                tags.append(Tags.objects.filter(name='normal'))
+                print(tags[0])
+            
+            
+            print(len(tags))
+            
             return HttpResponseRedirect('/quiz/tes')
 
     else:

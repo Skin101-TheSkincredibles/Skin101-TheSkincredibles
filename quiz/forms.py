@@ -16,28 +16,28 @@ class QuizSession(forms.Form):
 
     # Apa kulitmu berminyak?
     Q2 = [
-        (Tags.objects.filter(name='oily'),'Iya'),
+        (True,'Iya'),
         (False,'Tidak')
         ]
     oily = forms.CharField(label='oily', widget=forms.RadioSelect(choices=Q2))
 
     # Apa kulitmu mudah merah atau sering iritasi?
     Q3 =[
-        (Tags.objects.filter(name='sensitive'),'Iya'),
+        (True,'Iya'),
         (False,'Tidak')
         ]
     sensitive = forms.CharField(label='sensitive', widget=forms.RadioSelect(choices=Q3))
 
     # Apa kulitmu gampang berjerawat?
     Q4 = [
-        (Tags.objects.filter(name='acne'),'Iya'),
+        (True,'Iya'),
         (False,'Tidak')
         ]
     acne = forms.CharField(label='acne', widget=forms.RadioSelect(choices=Q4))
 
     # Apakah kulitmu sering kering atau bersisik?
     Q5 = [
-        (Tags.objects.filter(name='dry'),'Iya'),
+        (True,'Iya'),
         (False,'Tidak')
         ]
     dry = forms.CharField(label='dry', widget=forms.RadioSelect(choices=Q5))
