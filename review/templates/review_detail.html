@@ -1,0 +1,20 @@
+<div class="container">
+    <h1>Review Detail</h1>
+
+    <div>
+      <a href="{% url 'review' %}" class="btn btn-success">Back</a>
+    </div>
+
+    <br>
+
+    <div>
+      <h2>{{ review.nama_produk }}</h2>
+      <h2>{{ review.username }}</h2>
+      <h2>{{ review.tipe }}</h2>
+
+
+      <p>
+          {{ review.isi_review }}
+      </p>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="cont">
+    <h5 style="color: white; text-align: center;">Create Review</h5>
+    <hr style="color: white; height: 2px">
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+        <input class="btn btn-sm btn-light btn-outline-warning" type="submit" name="Submit">
+    </form>
+</div>
+

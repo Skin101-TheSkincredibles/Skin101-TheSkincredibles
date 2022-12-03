@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-9 mx-auto">
+      <h5 style="color: #C37B89">REVIEWS LIST:</h5>
+      <hr style="background-color: #cc526a; height: 2px">
+      <div class="card card-body" style="background-color: #d69ca8">
+          <a class="btn btn-light btn-outline-warning btn-sm btn-block" href="{% url 'create_review' %}">Add Review</a>
+          <table class="table table-sm">
+              <tr>
+                  <th class="teks-table">Product Name</th>
+                  <th class="teks-table">Username</th>
+                  <th class="teks-table">Skin Type</th>
+                  <th class="teks-table">Date Created</th>
+                  <th class="teks-table">See Detail</th>
+                  <th class="teks-table">Like</th>
+                  <th class="teks-table">Dislike</th>
+
+              </tr>
+              {% for i in review %}
+                  <tr>
+                      <th class="teks-table">{{i.nama_produk}}</th>
+                      <th class="teks-table">{{i.username}}</th>
+                      <th class="teks-table">{{i.tipe}}</th>
+                      
+                      <th class="teks-table">{{i.date_created}}</th>
+                      <th><a class="btn btn-sm btn-light btn-outline-warning" href="{% url 'review_detail' i.id %}">Detail</a></th>
+                      <th><a class="btn btn-sm btn-light btn-outline-warning" href="">Like</a></th>
+                      <th><a class="btn btn-sm btn-light btn-outline-danger" href="">Dislike</a></th>
+                  </tr>
+              {% endfor %}
+          </table>
+      </div>
+  </div>
+</div>
