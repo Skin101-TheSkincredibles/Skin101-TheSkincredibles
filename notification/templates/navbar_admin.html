@@ -1,0 +1,44 @@
+<!-- link and script -->
+{% load static %}
+<!--suppress XmlDuplicatedId -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/utilities_styles.css' %}" />
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- end -->
+
+<!-- Navbar Admin -->
+<header id="notification">
+  <a id="notification" href="/home/" style="margin-right: auto;"></a>
+  <div class="drop" id="notification">
+    <button id="notification" class="dbutton">Admin</button>
+    <div class="dcontent" id="notification">
+      <a id="notification" href="/skin101-administrator/make-notification">Make Notification</a>
+    </div>
+  </div>
+  <nav>
+    <ul class="navibar" id="utilities">
+      <li id="notification"><a id="notification" href="/home/"       >Home</a></li>
+      <li id="notification"><a id="notification" href="/auth/logout/" >Log out</a></li>
+    </ul>
+  </nav>
+</header>
+<!--end navbar-->
+
+<!-- Notification -->
+<button id="notification" data-target="#notificationtModal" data-toggle="modal"
+style="padding: 5px 15px; margin-top: 10px; background: #ffd4fd; width: 97%; margin-bottom: 10px;" >Notification</button>
+
+{% include 'modal_notification.html' %}
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $.getJSON("/admin/get-notification",
+  function(data){
+    $('#notificationTitle').text(data[data.length-1]["fields"]["title"].toLocaleString("en-US"));
+    $('#notificationMessage').text(data[data.length-1]["fields"]["messages"].toLocaleString("en-US"));
+  });
+})
+</script>
