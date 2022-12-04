@@ -1,0 +1,57 @@
+{% extends "base_profile.html" %} {% load crispy_forms_tags %} {% load static %} 
+
+{% block content %}
+<div class="edit-profile" style="background-color: whitesmoke;border-radius: 0.5%;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+  <div class="card-header">
+      <h2 class= "text-center" style="color: #2d1f2c; padding: 1em 0 0.5em 0;"> Edit Profile</h2>
+    <div class="card-body">
+      <h4 class="card-title" style="text-align: center; color: #1561A7;">@{{ user.username }}</h4>
+      <h4 class="card-title-desc" style="text-align: center; color: #2d1f2c;font-weight: bolder;">{{ user.profile.name }}</h4>
+    </div>
+  </div>
+  <!-- FORM -->
+  <br>
+  <!-- FORM -->
+  <div class="row gx-5 justify-content-center" style="color: #1561A7; font-weight: 500; font-size: 17px;">
+    <div class="col-md-8" style="font-weight: bold;">
+      <!-- method -->
+      <form method="POST" id="postform" enctype="multipart/form-data">
+        {% csrf_token %}
+          <div class="form" id="the_post">
+          <!-- #1 -->
+          <div class="container">
+            <div id= "avatar-box" style="text-align: center;">
+              <img id="id_avatar", class="rounded-circle" src="{{ user.profile.avatar.url }}" style="max-height:350px;width:350px;object-fit: cover;" alt="profile picture"/>
+              <div class="p-2">{{ profile_form.avatar|as_crispy_field }} </div>
+            </div>
+          </div>
+          <!-- #2 -->
+          <!-- <div id="postform" > -->
+            <div class="container">
+              <div class="d-flex justify-content-center">
+                <div class="order-1 p-2">{{ user_form|crispy }} </div>
+              </div>
+            </div>
+            <!-- #3 -->
+            <div class="container">
+              <div class="d-flex justify-content-center">
+                <div class="order-1 p-2"> {{ profile_form.name|as_crispy_field }} </divid>
+                <div class="order-2 p-2"> {{ profile_form.email|as_crispy_field }} </div>
+              </div>
+            </div>
+          <!-- #7 -->
+          <div class="card-footer fw-bolder">
+            <div class="d-flex justify-content-center">
+              <div class="order-1 p-2">
+                <button class="btn btn-outline-primary" type="submit" id="btnsave" value="POST">Save Changes</button>
+              </div>
+              <div class="order-2 p-2">
+                <a href= "/profile" class="btn btn-outline-danger" type="reset" id="btncancel">Cancel</a>
+              </div>
+            </div>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}

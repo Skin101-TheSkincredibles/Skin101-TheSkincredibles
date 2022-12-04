@@ -16,48 +16,26 @@
   <body id="notification">
     {% include 'navbar_roles.html' %}
 
-    <!-- Make Announcement -->
+    <!-- Make Notification -->
     <section class="container-fluid">
       <section class="row justify-content-center">
         <section class="col-12 col-sm-6 col-md-3">
-          <form action="" method="POST" id="announcement" class="form-container">
+          <form action="" method="POST" id="notification" class="form-container">
               {% csrf_token %}
-              <h4 class="text-center font-weight-bold">Make Announcement</h4>
+              <h4 class="text-center font-weight-bold">Set Notification</h4>
               <br>
               <div class="form-group">
                 <input id="id_title" class="form-control" width="75%" type="text" name="title" required="true" placeholder="Title" />
               </div>
               <div class="form-group">
-                <textarea id="id_message" class="form-control" form="announcement" rows="4" cols="100" name="message" required="true" placeholder="Message"></textarea>
+                <textarea id="id_message" class="form-control" form="notification" rows="4" cols="100" name="message" required="true" placeholder="Message"></textarea>
               </div>
               <br>
-              <input type="submit" class="btn btn-primary btn-block" id="announcementSubmit" value="Post">
+              <input type="submit" class="btn btn-primary btn-block" id="notificationSubmit" value="Post">
           </form>
         </section>
       </section>
     </section>
-    <!-- end section -->
-
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $("#announcementSubmit").click(function(e) {
-          // serialize the data for sending the form data.
-          var serializedData = $(this).serialize();
-          // make POST ajax call
-          $.ajax({
-            url: "{% url 'make_announcement' %}",
-            type: "POST",
-            data: serializedData,
-            success: function(response) {
-              location.reload();
-            },
-            error: function (response) {
-              console.error(response);
-            }
-          });
-        });
-      })
-    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </body>
