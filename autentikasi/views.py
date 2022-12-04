@@ -6,11 +6,17 @@ from django.views.decorators.csrf import csrf_exempt
 from .forms import UserRegisterForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from notification.models import Notification
+
 
 @csrf_exempt
 def home(request):
-    return render(request, 'autentikasi/home.html')
-
+    if request.user.is_authenticated:
+        form = (Notification.objects.all().values()).last()
+        context = {'form': form}
+        return render(request, 'autentikasi/home.html', context)
+    else:
+        return render(request, 'autentikasi/home.html')
 
 def register(request):
     if request.method == "POST":

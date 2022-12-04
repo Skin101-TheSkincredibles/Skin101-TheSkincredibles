@@ -42,39 +42,58 @@
     </nav>
   </body>
 
-    <!-- Modal Popup Announcement -->
-    <div class="modal fade" id="notificationModal" data-keyboard="false" data-backdrop="static" tabindex="-1">
+  <!-- Notification -->
+  <button id="notification" data-bs-target="#notificationModal" data-bs-toggle="modal"  class="btn" style="color:white; background-color: #fd5e14;"type="submit" id="header-links"> Skin101 Notification </button>
+      <!-- Modal Popup Announcement -->
+    <form method="GET" class="modal fade" id="notificationModal" data-keyboard="false" data-backdrop="static" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">Notification</h4>
+            <h4 class="modal-title" style="color: black">Notification</h4>
             <button class="close" data-dismiss="modal">&times;</button>
           </div>
           <div class="modal-body">
-            <h5 style="text-align: center;">{{title}}</h5>
-            <p style="text-align: center;" id="notificationTitle"></p>
+            <h5 style="text-align: center; color: blue" >Hi,{{user.username}}! </h5>
             <br>
-            <h5 style="text-align: center;">{{messages}}</h5>
-            <p style="text-align: center;" id="notificationMessages"></p>
+            <h5 style="text-align: center; color: black" id="notificationTitle">{{form.title}}</h5>
+            <p style="text-align: center; color: black" id="notificationMessage">{{form.messages}}</p>
           </div>
           <div class="modal-footer">
             <button class="btn btn-info" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
-    </div>
+    </form>
     <!-- end modal -->
 
-      <!-- Notification -->
-    <button id="notification" data-bs-target="#notificationModal" data-bs-toggle="modal"  class="btn" style="color: white; background-color: #fd5e14;"type="submit" id="header-links"> Skin101 Notification </button>
-
 <script type="text/javascript">
-$(document).ready(function() { 
-  $.getJSON("/administrator/get-notification",
-  function(data){ 
-    $('#notificationTitle').text(data[data.length-1]["fields"]["title"].toLocaleString("en-US"));
-    $('#notificationMessages').text(data[data.length-1]["fields"]["messages"].toLocaleString("en-US"));
-  });      
-})
+$(document).ready(function() {
+  $(document).on("submit", "#notificationModal", function (e) {
+    e.preventDefault();
+    var serializedData = $(this).serialize();
+    var response = "";
+    $.getJSON({
+      type: 'GET',
+      url: "{% url 'notification-datas' %}",
+      data: serializedData,
+      success: function (data) {
+        $("#notificationTitle").text(data[data.length-1]["fields"]["title"].toLocaleString("en-US"));
+        $("#notificationMessage").text(data[data.length-1]["fields"]["messages"].toLocaleString("en-US"));
+        console.log("enable ajax..")
+        alert("Check new notification!")
+      },
+      error: function (response) {
+        console.log(response)
+      }
+    });
+  });
+});
+
+//   $.getJSON("/administrator/notification-datas",
+//   function(data){
+//     $('#notificationTitle').text(data[data.length-1]["fields"]["title"].toLocaleString("en-US"));
+//     $('#notificationMessage').text(data[data.length-1]["fields"]["messages"].toLocaleString("en-US"));
+//   });
+// })
 </script>
 </html>
