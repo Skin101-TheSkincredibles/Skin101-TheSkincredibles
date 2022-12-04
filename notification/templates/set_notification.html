@@ -20,8 +20,9 @@
     <section class="container-fluid">
       <section class="row justify-content-center">
         <section class="col-12 col-sm-6 col-md-3">
-          <form action="" method="POST" id="notification" class="form-container">
+          <form action="" method="POST" id="postformnotif" class="form-container">
               {% csrf_token %}
+              <br>
               <h4 class="text-center font-weight-bold">Set Notification</h4>
               <br>
               <div class="form-group">
@@ -32,10 +33,36 @@
               </div>
               <br>
               <button class="btn btn-outline-primary" type="submit" id="btnsave" value="POST">Post</button>
+              <a href="/home" class="btn btn-outline-danger" id="btnsave" value="POST">Cancel</a>
           </form>
         </section>
       </section>
     </section>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $(document).on("submit", "#postformnotif", function(e){
+            e.preventDefault();
+            var serializedData = $(this).serialize();
+            var response = "";
+            $.ajax ({
+                type : 'POST',
+                url : "{% url 'get-notification' %}",
+                data : serializedData,
+                success : function(response){
+                     $("#id_title").val(response["title"]);
+                     $("#id_messages").val(response["messages"]);
+                     $("#id_published").val(response["published"]);
+                     console.log("checking notif ajax..")
+                     alert("New notification has been published!")
+                },
+                error : function(response){
+                    console.log(response)
+                }
+            });
+        });
+    });
+    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </body>

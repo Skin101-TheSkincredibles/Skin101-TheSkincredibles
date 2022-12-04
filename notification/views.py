@@ -10,15 +10,6 @@ from django.contrib.auth.decorators import user_passes_test
 from django.contrib import messages
 
 @user_passes_test(lambda u: u.is_superuser)
-def show_notification(request):
-    context = {
-        'title': Notification.objects.all(),
-        'messages': Notification.objects.all(),
-        'published' : Notification.objects.all()
-    }
-    return render(request, 'autentikasi/home.html', context)
-
-@user_passes_test(lambda u: u.is_superuser)
 def set_notification(request):
     form = NotificationForm(request.POST)
 
@@ -32,28 +23,31 @@ def set_notification(request):
     response = {'form': form}
     return render(request, 'set_notification.html', response)
 
-# @user_passes_test(lambda u: u.is_superuser)
-# def show_notification(request):
-#     return render(request, 'autentikasi/home.html')
-
-# @user_passes_test(lambda u: u.is_superuser)
-# def get_notification(request):
-#     form = NotificationForm(request.POST)
-#     if (request.method == 'POST'):
-#         if (form.is_valid()):
-#             form.save()
-#             notif_data = {}
-#             notif_data['title'] = request.POST.get('title')
-#             notif_data['messages'] = request.POST.get('messages')
-#             return JsonResponse(notif_data, safe=False)
-#     return render(request, '')
-
 @user_passes_test(lambda u: u.is_superuser)
 def get_notification(request):
-    notification = Notification.objects.all()
-    
-    data = serializers.serialize('json', notification)        
-    return HttpResponse(data, content_type="application/json")
+    form = NotificationForm(request.POST)
+    if (request.method == 'POST'):
+        if (form.is_valid()):
+            form.save()
+            notif_data = {}
+            notif_data['title'] = request.POST.get('title')
+            notif_data['messages'] = request.POST.get('messages')
+            return JsonResponse(notif_data, safe=False)
+        return redirect('../home')
+    else:
+        print('failed to post data')
+
+    context = {
+        'form' : form,
+    }
+    return render(request, 'set_notification.html', context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def fetch_notification_datas(request):
+    form = Notification.objects.all()
+    datas = serializers.serialize('json', form)
+    return HttpResponse(datas, content_type='application/json')
 
 from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
