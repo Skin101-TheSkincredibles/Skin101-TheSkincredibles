@@ -13,9 +13,9 @@
     <!--Font Link-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   </head>
-  <body id="bg" style="background-image: url({% static 'autentikasi/images/bg.png' %});">
   {% load static %}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="main-navbar">
         <div class="container">
@@ -30,6 +30,7 @@
             </div>
             <form class="d-flex" id="authstyle">
               {% if user.is_authenticated %}
+                <i data-toggle="modal" data-target="#notificationModal" style="color: white; background-color: #fd5e14;" id="header-links" class="fa fa-bell"></i>
                 <a href="{% url 'logout' %}" class="btn" style="color: white; background-color: #fd5e14;"type="submit" id="header-links"> Logout </a>
               {% else %}
                 <a href="{% url 'login' %}" class="btn" style="color: white; background-color: #fd5e14; margin-left: 10px; "type="submit" id="header-links">Log In</a>
@@ -38,4 +39,6 @@
           </div>
         </div>
     </nav>
+    {% comment %} {% include 'modal_notification.html' %}  {% endcomment %}
+  </head>
 </html>
