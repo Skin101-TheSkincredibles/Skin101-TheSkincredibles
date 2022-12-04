@@ -1,8 +1,6 @@
 from django.urls import path
-from .views import start_session,generate_recommendation
+from .views import *
 
 urlpatterns = [
-    #path('', daftar_artikel, name='daftar_artikel'),
-    path('', start_session, name='start_session'),
-    path('recommendation/', generate_recommendation, name='recommendation')
+    path('',start_session,name='start_session')
 ]
