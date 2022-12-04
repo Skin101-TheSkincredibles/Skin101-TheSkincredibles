@@ -52,7 +52,6 @@
                 success : function(response){
                      $("#id_title").val(response["title"]);
                      $("#id_messages").val(response["messages"]);
-                     $("#id_published").val(response["published"]);
                      console.log("checking notif ajax..")
                      alert("New notification has been published!")
                 },
