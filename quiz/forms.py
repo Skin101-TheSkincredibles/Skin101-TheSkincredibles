@@ -1,6 +1,5 @@
 from django import forms
 from productdisplay.models import Tags
-from productdisplay.models import Tags
 
 class QuizSession(forms.Form):
 
