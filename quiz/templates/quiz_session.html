@@ -1,6 +1,5 @@
 <title>Skincare Quiz!</title>
 
-
 <th>Skincare Quiz!</th>
 
 <form action="/quiz/" method="post">
@@ -27,6 +26,107 @@
         {{ form.dry }}
     </p>
 
-    <input type="submit" value="Submit">
+    <input hidden id = "6" type="submit" value="Submit">
 
 </form>
+
+<div id="1">
+  This is my first element.
+</div>
+
+<div hidden id="2">
+    This is my second element.
+</div>
+
+<div hidden id="3">
+    This is my third element.
+</div>
+
+<div hidden id="4">
+    This is my fourth element.
+</div>
+
+<div hidden id="5">
+    This is my fifth element.
+</div>
+
+<button onclick="next()">Next</button>
+<button onclick="prev()">Previous</button>
+
+<button>Done</button>
+
+<script>
+
+    let ids = "1"
+
+    function next() {
+        var x = document.getElementById(ids);
+        x.style.display = "none"
+        
+        switch(ids) {
+
+            case "1":
+                ids = "2"
+                break;
+
+            case "2":
+                ids = "3"
+                break;
+
+            case "3":
+                ids = "4"
+                break;
+    
+            case "4":
+                ids = "5"
+                break;
+
+            case "5":
+                //stay, nanti tunjukkin submit aja, hilangin button
+                ids = "6"
+            default:
+              break;
+          }
+        
+        var y = document.getElementById(ids);
+        y.style.display = "block"
+      }
+
+
+      function prev() {
+        var x = document.getElementById(ids);
+        x.style.display = "none"
+        
+        switch(ids) {
+
+            case "1":
+                ids = "1"
+                break;
+
+            case "2":
+                ids = "1"
+                break;
+
+            case "3":
+                ids = "2"
+                break;
+    
+            case "4":
+                ids = "3"
+                break;
+
+            case "5":
+                //stay, nanti tunjukkin submit aja, hilangin button
+                ids = "4"
+                break;
+            default:
+                ids = "5"
+                break;
+          }
+        
+        var y = document.getElementById(ids);
+        y.style.display = "block"
+        
+      }
+
+</script>
