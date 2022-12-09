@@ -60,6 +60,3 @@ class QuizTestCase(TestCase):
         self.assertEqual(quiz.generate_recomendation([sensitive],'toner')[0], st)
         self.assertEqual(quiz.generate_recomendation([sensitive,acne],'toner')[0], sat)
         self.assertEqual(quiz.generate_recomendation([sensitive,acne,dry],'toner')[0], sadt)
-        
-
-

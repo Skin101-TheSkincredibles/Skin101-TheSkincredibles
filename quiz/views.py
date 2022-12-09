@@ -2,7 +2,13 @@ from django.shortcuts import render
 from productdisplay.models import Tags
 
 from .forms import QuizSession
-from django.http import HttpResponseRedirect
+from django.shortcuts import redirect
+
+def convert_to_id(tags):
+    tags_ids = []
+    for tag in tags:
+        tags_ids.append(list(tag)[0].id)
+    return tags_ids
 
 
 def start_session(request):
@@ -41,17 +47,13 @@ def start_session(request):
             print(len(tags))
             
             # NOTE : masih ngasilin error nes sessionnya :[
-            #request.session['type'] = type
-            #request.session['tags'] = tags
-            return HttpResponseRedirect('/display')
+            print('hello')
+            request.session['type'] = type
+            request.session['tags'] = convert_to_id(tags)
+            return redirect('productdisplay:filtered_products')
 
     else:
         form = QuizSession()
 
     return render(request,'quiz_session.html',{'form': form})
-
-
-
-
-    
 

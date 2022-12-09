@@ -1,5 +1,6 @@
 from django import forms
 from productdisplay.models import Tags
+from productdisplay.models import Tags
 
 class QuizSession(forms.Form):
 
@@ -26,5 +27,3 @@ class QuizSession(forms.Form):
     acne = forms.CharField(label='acne', widget=forms.RadioSelect(choices=Q2))
 
     dry = forms.CharField(label='dry', widget=forms.RadioSelect(choices=Q2))
-
-
