@@ -4,6 +4,9 @@
       <hr style="background-color: #cc526a; height: 2px">
       <div class="card card-body" style="background-color: #d69ca8">
           <a class="btn btn-light btn-outline-warning btn-sm btn-block" href="{% url 'create_review' %}">Add Review</a>
+          <form method="get">
+            {{myFilter.form}}
+         </form>
           <table class="table table-sm">
               <tr>
                   <th class="teks-table">Product Name</th>

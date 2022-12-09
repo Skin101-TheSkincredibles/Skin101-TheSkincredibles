@@ -1,10 +1,9 @@
 import django_filters
 from .models import *
+from django_filters import CharFilter
 
 class ProductFilter(django_filters.FilterSet):
-
+    nama_produk = CharFilter(field_name='nama_produk', lookup_expr='icontains')
     class Meta:
         model = ReviewModel
-        fields = {
-            'nama_produk' : ['icontains']
-        }
+        fields = ['nama_produk']

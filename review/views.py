@@ -1,14 +1,13 @@
 from django.shortcuts import render, redirect
-from .models import *
-from .forms import *
+from review.models import ReviewModel
+from review.forms import ReviewForm
 from django.contrib.auth.decorators import login_required
 from rest_framework import generics
-from review import models
-from .serializers import reviewSerializers
+from review.serializers import reviewSerializers
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import get_object_or_404
-from .filters import * 
+from review.filters import * 
 
 # Create your views here.
 class listReview(generics.ListCreateAPIView):
@@ -21,7 +20,9 @@ class detailReview(generics.RetrieveUpdateDestroyAPIView):
 
 def index(request):
     review = ReviewModel.objects.all().order_by('-date_created')
-    context = {'review':review}
+    myFilter = ProductFilter(request.GET, queryset=review)
+    review = myFilter.qs
+    context = {'myFilter':myFilter, 'review':review}
     return render(request, 'all_reviews.html', context)
 
 def create_review(request):
@@ -52,16 +53,16 @@ def LikeView(request, pk):
 
     return HttpResponseRedirect(reverse('review_detail', args=[str(pk)]))
 
-def search_reviews(request):
-	if request.method == "POST":
-		searched = request.POST['searched']
-		review = ReviewModel.objects.filter(name__contains=searched)
+# def search_reviews(request):
+# 	if request.method == "POST":
+# 		searched = request.POST['searched']
+# 		review = ReviewModel.objects.filter(name__contains=searched)
 	
-		return render(request, 
-		'all_reviews.html', 
-		{'searched':searched,
-		'review':review})
-	else:
-		return render(request, 
-		'all_reviews.html', 
-		{})
+# 		return render(request, 
+# 		'all_reviews.html', 
+# 		{'searched':searched,
+# 		'review':review})
+# 	else:
+# 		return render(request, 
+# 		'all_reviews.html', 
+# 		{})
