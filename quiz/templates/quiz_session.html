@@ -1,32 +1,35 @@
 <title>Skincare Quiz!</title>
 
 <th>Skincare Quiz!</th>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'card.css' %}">
 
 <form action="/quiz/" method="post">
     {% csrf_token %}
 
 
-    <div id ="1">Apa produk yang kamu cari?
+    <div class="card" id ="1">Apa produk yang kamu cari?
+        <!--img src="{% static 'static/sea.jpg'%}"-->
         {{ form.type }}
     </div>
 
-    <div hidden id = "2">Apa kulitmu berminyak?
+    <div hidden id = "2" class="card">Apa kulitmu berminyak?
         {{ form.oily }}
     </div>
 
-    <div hidden id = "3"> Apa kulitmu mudah merah atau sering iritasi?
+    <div hidden id = "3" class="card"> Apa kulitmu mudah merah atau sering iritasi?
         {{ form.sensitive }}
     </div>
 
-    <div hidden id = "4"> Apa kulitmu gampang berjerawat?
+    <div hidden id = "4" class="card"> Apa kulitmu gampang berjerawat?
         {{ form.acne }}
     </div>
 
-    <div hidden id = "5"> Apakah kulitmu sering kering atau bersisik?
+    <div hidden id = "5" class="card"> Apakah kulitmu sering kering atau bersisik?
         {{ form.dry }}
     </div>
 
-    <input hidden id = "6" type="submit" value="Submit">
+    <input hidden id = "6" type="submit" value="Submit" class="card">
 
 </form>
 
@@ -34,29 +37,6 @@
 <button onclick="next()">Next</button>
 
 
-<!--div id="1">
-  This is my first element.
-</div>
-
-<div hidden id="2">
-    This is my second element.
-</div>
-
-<div hidden id="3">
-    This is my third element.
-</div>
-
-<div hidden id="4">
-    This is my fourth element.
-</div>
-
-<div hidden id="5">
-    This is my fifth element.
-</div-->
-
-
-
-<!--button>Done</button-->
 
 <script>
 
