@@ -28,23 +28,26 @@
               <a class="nav-link active" aria-current="page" href="/home">Home</a>
 
             </div>
+
             <form class="d-flex" id="authstyle">
               {% if user.is_authenticated %}
                 <a href="{% url 'profile' %}" class="btn" style="color: white; background-color: #fd5e14;"type="submit" id="header-links"> Profile </a>
                 <a href="{% url 'logout' %}" class="btn" style="color: white; background-color: #fd5e14;"type="submit" id="header-links"> Logout </a>
+                <i class="fa-regular fa-bell" data-bs-toggle="modal" data-bs-target="#notificationModal" style="color: white; background-color: #fd5e14;"
+                   id="header-links" ></i>
               {% else %}
                 <a href="{% url 'register' %}" class="btn" style="color: white; background-color: #fd5e14;"type="submit" id="header-links"> Create Account </a>
                 <a href="{% url 'login' %}" class="btn" style="color: white; background-color: #fd5e14; margin-left: 10px; "type="submit" id="header-links">Log In</a>
               {% endif %}
-              </form>
+            </form>
           </div>
         </div>
     </nav>
   </body>
 
   <!-- Notification -->
-<!--  <button class="btn"><i data-bs-toggle="modal" data-bs-target="#notificationModal" style="color: white; background-color: #fd5e14;" id="header-links" class="fa fa-bell"></i></button>-->
-  <button id="notification" data-bs-target="#notificationModal" data-bs-toggle="modal"  class="btn" style="color:white; background-color: #fd5e14;"type="submit" id="header-links"> Skin101 Notification </button>
+
+{#  <button id="notification" data-bs-target="#notificationModal" data-bs-toggle="modal"  class="btn" style="color:white; background-color: #fd5e14;"type="submit" id="header-links"> Skin101 Notification </button>#}
       <!-- Modal Popup Announcement -->
     <form method="GET" class="modal fade" id="notificationModal" data-keyboard="false" data-backdrop="static" tabindex="-1">
       <div class="modal-dialog">
