@@ -47,27 +47,13 @@ def show_all_products(request): #show all products in html
             res = filter_by(tags).distinct().filter(type=type)
             context = {'products':res, 'form':form}
             return render(request, 'index.html', context)
+
     else:
         form = FilterForm()
 
     context = {'products':get_products(), 'form':form}
     return render(request, 'index.html', context)
 
-# def show_filtered_products(request): #show filtered contents in html
-#     if request.method == 'POST':
-#         form = FilterForm(request.POST)
-#         if form.is_valid():
-#             type = form.cleaned_data['type']
-#             tags = getPks(form)
-
-#             res = filter_by(tags).distinct().filter(type=type)
-#             context = {'products':res, 'form':form}
-#             return render(request, 'index.html', context)
-#     else:
-#         form = FilterForm()
-
-#     context = {'products':get_products(), 'form':form}
-#     return render(request, 'index.html', context)
 
 def show_generated_products(request): #show filtered contents in html
         #TES aja dibawah
@@ -77,9 +63,3 @@ def show_generated_products(request): #show filtered contents in html
     res = filter_by(tags).distinct().filter(type=type)
     context = {'products':res, 'form':form}
     return render(request, 'index.html', context)
-
-def show_product_detail(request, product_id): #show detailed information about a skincare once a client click on their respective button.
-    sc = SkinCareItem.objects.get(pk=product_id)
-    context = {'product':sc}
-    return render(request, 'detail.html', context)
-    
