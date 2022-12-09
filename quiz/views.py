@@ -50,7 +50,7 @@ def start_session(request):
             print('hello')
             request.session['type'] = type
             request.session['tags'] = convert_to_id(tags)
-            return redirect('productdisplay:filtered_products')
+            return redirect('productdisplay:generated_products')
 
     else:
         form = QuizSession()

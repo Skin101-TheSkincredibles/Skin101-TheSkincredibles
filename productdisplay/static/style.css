@@ -1,0 +1,197 @@
+
+   /* CREDIT CSS TO 
+   LEVIN MEJIA
+   https://css-tricks.com/designing-a-product-page-layout-with-flexbox/
+   https://codepen.io/levinmejia/pen/zrddrv
+
+   JOE BOCOCK
+   https://codepen.io/joebocock/pen/ZEWoMPb
+   */
+
+
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+    
+    body {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 1240px;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f2eeeed0;
+    }
+    
+    /* Typography */
+    
+    h1 {
+        font-size: 50px;
+        font-weight: 600;
+        flex: 1;
+    }
+
+    .fill{
+        font-size: 20px;
+        color: #FFF;
+        font-weight: 200;
+        letter-spacing: 1px;
+        padding: 13px 50px 13px;
+        outline: 0;
+        border: 1px solid black;
+        cursor: pointer;
+        position: relative;
+        background-color: rgba(0, 0, 0, 0);
+      }
+      
+      .fill::after {
+        content: "";
+        background-color: #9f9f9e;
+        width: 100%;
+        z-index: -1;
+        position: absolute;
+        height: 100%;
+        top: 7px;
+        left: 7px;
+        transition: 0.2s;
+      }
+      
+      .fill:hover::after {
+        top: 0px;
+        left: 0px;
+      }
+    
+    .collection-sort:first-child {
+        padding-right: 20px;
+    }
+    
+    label {
+        color: #666;
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 2em;
+        text-transform: uppercase;
+    }
+    
+    /* Product Layout */
+    
+    .product-filter {
+        display: flex;
+        padding: 30px 0;
+    }
+    
+    .sort {
+        display: flex;
+        align-self: flex-end;
+        flex-direction: row;
+    }
+    
+    .collection-sort {
+     display: flex;
+        flex-direction: column;
+    }
+
+  
+
+    .col-container{
+        display: flex;
+       flex-direction: column;
+       
+    }
+
+    .checklist-box {
+        flex-direction: column;
+
+    }
+    
+    .collection-sort:first-child {
+        padding-right: 20px;
+    }
+    
+    label {
+        color: #666;
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 2em;
+        text-transform: uppercase;
+    }
+    
+    .products {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #FFF;
+        width: 100%;
+     
+    }
+    
+    .product-card {
+        display: flex;
+        flex-direction: column;
+        
+        padding: 2%;
+        flex: 0 0 46%;
+        
+        background-color: #FFF;
+        box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.25);
+    }
+    
+    .product-image img {
+        width: 100%;
+    }
+    
+    .product-info {
+        margin-top: auto;
+        padding-top: 20px;
+        text-align: center;
+    }
+    
+    @media ( max-width: 920px ) {
+        
+        .product-card {
+            flex: 1 21%;
+        }
+        
+        .products .product-card:first-child, 
+        .products .product-card:nth-child(2) {
+            flex: 2 46%;
+        }
+        
+    }
+    
+    @media ( max-width: 600px ) {
+        
+        .product-card {
+            flex: 1 46%;
+        }
+        
+    }
+    
+    @media ( max-width: 480px ) {
+        
+        h1 {
+            margin-bottom: 20px;
+        }
+        
+        .product-filter {
+            flex-direction: column;
+        }
+        
+        .sort {
+            align-self: flex-start;
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
