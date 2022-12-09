@@ -6,31 +6,35 @@
     {% csrf_token %}
 
 
-    <p>Apa produk yang kamu cari?
+    <div id ="1">Apa produk yang kamu cari?
         {{ form.type }}
-    </p>
+    </div>
 
-    <p>Apa kulitmu berminyak?
+    <div hidden id = "2">Apa kulitmu berminyak?
         {{ form.oily }}
-    </p>
+    </div>
 
-    <p> Apa kulitmu mudah merah atau sering iritasi?
+    <div hidden id = "3"> Apa kulitmu mudah merah atau sering iritasi?
         {{ form.sensitive }}
-    </p>
+    </div>
 
-    <p> Apa kulitmu gampang berjerawat?
+    <div hidden id = "4"> Apa kulitmu gampang berjerawat?
         {{ form.acne }}
-    </p>
+    </div>
 
-    <p> Apakah kulitmu sering kering atau bersisik?
+    <div hidden id = "5"> Apakah kulitmu sering kering atau bersisik?
         {{ form.dry }}
-    </p>
+    </div>
 
     <input hidden id = "6" type="submit" value="Submit">
 
 </form>
 
-<div id="1">
+<button onclick="prev()">Previous</button>
+<button onclick="next()">Next</button>
+
+
+<!--div id="1">
   This is my first element.
 </div>
 
@@ -48,12 +52,11 @@
 
 <div hidden id="5">
     This is my fifth element.
-</div>
+</div-->
 
-<button onclick="next()">Next</button>
-<button onclick="prev()">Previous</button>
 
-<button>Done</button>
+
+<!--button>Done</button-->
 
 <script>
 
