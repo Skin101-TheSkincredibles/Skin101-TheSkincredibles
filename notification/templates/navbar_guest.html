@@ -16,15 +16,11 @@
 
   </head>
   {% load static %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="main-navbar">
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #7A9EAF;" id="main-navbar">
         <div class="container">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="/home">Home</a>
-
+                <a class="nav-link active" aria-current="page" href="/home">Home</a>
             </div>
             <form class="d-flex" id="authstyle">
                 <a href="{% url 'register' %}" class="btn" style="color: white; background-color: #fd5e14;"type="submit" id="header-links"> Create Account </a>

@@ -30,6 +30,7 @@ def register(request):
         form = UserRegisterForm()
 
     return render(request, 'autentikasi/register.html', {'form': form})
+    # return render(request, 'autentikasi/auth_register.html', {'form': form})
 
 
 @login_required()

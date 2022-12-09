@@ -55,8 +55,7 @@
                      $("#id_messages").val(response["messages"]);
                      console.log("checking notif ajax..")
                      alert("New notification has been published!")
-                     {#document.getElementById("id_title").value = "";#}
-                     document.getElementsByClassName("form-control").reset();
+                     window.location.href = "../home";
                 },
                 error : function(response){
                     console.log(response)

@@ -15,9 +15,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:wght@800&display=swap" rel="stylesheet">
 
   </head>
-  <body id="bg" style="background-image: url({% static 'autentikasi/images/bg.png' %});">
+  <body id="bg" class="bg" style="background-image: url({% static 'autentikasi/images/bg.png' %});">
   {% load static %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="main-navbar">
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #7A9EAF;" id="main-navbar">
         <div class="container">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -26,6 +26,7 @@
             <div class="navbar-nav">
               {% include 'navbar_roles.html' %}
           </div>
+        </div>
         </div>
     </nav>
 
