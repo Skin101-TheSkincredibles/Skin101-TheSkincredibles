@@ -11,6 +11,46 @@
     },
     {
       "model": "productdisplay.SkinCareItem",
+      "pk": 2,
+      "fields": {
+        "name": "Miraculous Retinol Ampoule" ,
+        "type": "serum",
+        "price":"259000",
+        "tags":[4]
+      }
+    },
+    {
+      "model": "productdisplay.SkinCareItem",
+      "pk": 3,
+      "fields": {
+        "name": "Skintific 5X Ceramide Barrier Repair Moisture Gel Moisturizer" ,
+        "type": "moisturizer",
+        "price":"116000",
+        "tags":[1,4]
+      }
+    },
+    {
+      "model": "productdisplay.SkinCareItem",
+      "pk": 4,
+      "fields": {
+        "name": "Cosrx Low pH Good Morning Gel Cleanser" ,
+        "type": "moisturizer",
+        "price":"130000",
+        "tags":[1]
+      }
+    },
+    {
+      "model": "productdisplay.SkinCareItem",
+      "pk": 5,
+      "fields": {
+        "name": "Sensatia Botanicals Surf Naked Sunscreen Lotion" ,
+        "type": "sunscreen",
+        "price":"150000",
+        "tags":[2]
+      }
+    },
+    {
+      "model": "productdisplay.SkinCareItem",
       "pk": 30,
       "fields": {
         "name": "Pixi Glow Tonic" ,
@@ -21,7 +61,7 @@
     },
     {
       "model": "productdisplay.SkinCareItem",
-      "pk": 30,
+      "pk": 31,
       "fields": {
         "name": "Wardah Lightening Face Toner" ,
         "type": "toner",

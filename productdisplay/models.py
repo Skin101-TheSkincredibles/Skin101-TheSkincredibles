@@ -18,11 +18,3 @@ class SkinCareItem(models.Model):
     def __str__(self):
         return self.name
 
-# class Display(models.Model):
-#     list_of_mosturizer = models.ManyToManyField(SkinCareItem)
-#     list_of_sunscreen = models.ManyToManyField(SkinCareItem)
-#     list_of_serum = models.ManyToManyField(SkinCareItem)
-#     list_of_facewash = models.ManyToManyField(SkinCareItem)
-#     list_of_toner = models.ManyToManyField(SkinCareItem)
-#     list_of_misc = models.ManyToManyField(SkinCareItem)
-#     list_of_tags = models.ManyToManyField(Tags)

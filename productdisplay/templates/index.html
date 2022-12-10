@@ -1,10 +1,152 @@
-{% if products %}
-    {% for product in products %}
-      <p>{{product.name}}</p>  
-      <p>{{product.type}}</p>  
-      <p>{{product.price}}</p> 
-      {% for tag in product.tags.all %}
-      <p>{{tag.name}}</p>  
-      {% endfor %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Bentham|Playfair+Display|Raleway:400,500|Suranna|Trocchi" rel="stylesheet">
+
+<form action="" method="post">
+  {% csrf_token %}
+
+  
+
+
+<nav class="product-filter">
+  
+    <h1>Skincare Products</h1>
+ 
+  
+
+  <div class="out-container">
+
+    {% if form.non_field_errors %}
+    {% for error in  form.non_field_errors %}
+      <div class="lineUp">
+        <button class="btn-cute" type="button">{{error}}</button>
+     
+      </div>
     {% endfor %}
-{% endif %}
+  {% endif %}
+
+  
+
+    <div class="col-container"> 
+    
+      <div class="sort">
+
+        
+        <div class="collection-sort">
+      
+          <label>Filter by Tags:</label>
+          <div class="checklist-box">
+      
+            
+              {{form.isOily}}
+              <label for="{{ form.isOily.id_for_label }}">{{ form.isOily.label}}</label><br>
+              {{form.isSensitive}}
+              <label for="{{ form.isOily.id_for_label }}">{{ form.isSensitive.label}}</label><br>
+              {{form.isAcne}}
+              <label for="{{ form.isOily.id_for_label }}">{{ form.isAcne.label}}</label><br>
+              {{form.isDry}}
+              <label for="{{ form.isOily.id_for_label }}">{{ form.isDry.label}}</label><br>
+              {{form.isNormal}}
+              <label for="{{ form.isOily.id_for_label }}">{{ form.isNormal.label}}</label><br>
+            
+
+            
+
+          </div>
+      
+        </div>
+        
+        <div class="collection-sort">
+          <label>Sort by:</label>
+          {{form.type}}
+        </div>
+  
+      </div>
+
+  
+      <button class="fill" type="submit">Filter</button>
+    </div>
+ 
+
+  </div>
+</nav>
+
+
+</form>
+
+
+
+
+<section class="products">
+
+   
+    {% if products %}
+
+      {% for product in products %}
+      
+      <div class="product-card">
+        <div class="product-image">
+          <img src="{% static 'skincare.jpg' %}" alt="My image">
+        </div>
+        <div class="product-info">
+          <h1>{{product.name}}</h1>  
+          <h2>{{product.type}}</h2>  
+          <div class="product-price-btn">
+            <button type="button">Rp.{{product.price}}</button>
+          </div>
+          <div class="tags">
+            {% for tag in product.tags.all %}
+            {% if tag.name == 'dry' %}
+            <p class="tag tag-dry tag-lg">{{tag.name}}</p>  
+            {% endif %}
+            {% if tag.name == 'oily' %}
+            <p class="tag tag-oily tag-lg">{{tag.name}}</p>  
+            {% endif %}
+            {% if tag.name == 'sensitive' %}
+            <p class="tag tag-sensitive tag-lg">{{tag.name}}</p>  
+            {% endif %}
+            {% if tag.name == 'acne' %}
+            <p class="tag tag-acne tag-lg">{{tag.name}}</p>  
+            {% endif %}
+            {% if tag.name == 'normal' %}
+            <p class="tag tag-normal tag-lg">{{tag.name}}</p>  
+            {% endif %}
+            
+          
+          {% endfor %}
+          </div>
+       
+
+        
+        </div>
+      </div>
+     
+      {% endfor %}
+
+    {% endif %}
+
+    {% if not products %}
+      <div class="display-chat">
+        <div class="avatar">
+          <img class="avaimg" src="{% static 'kobeni.jpg' %}" alt="My image">
+        </div>
+
+        <div class="text-chat">
+          <div class="text-content">
+            <p class="lineUp">Sorry, there is no filtering results:(</p>
+          </div>
+
+        </div>
+        
+      </div>
+
+    
+
+    {% endif %}
+  
+ 
+
+  <!-- more products -->
+
+</section>
+
