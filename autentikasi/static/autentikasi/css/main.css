@@ -7,7 +7,7 @@
 #main-navbar{
   color: white;
   min-height: 14vh;
-  font-size: 15px;
+  font-size: 22px;
 }
 #authstyle{
   margin-left: 17%;
@@ -27,10 +27,13 @@
   font-size: 20px;
   padding-top: 30px;
   font-weight: lighter;
-  font-family: 'Poppins';
+  font-family: 'Bahnschrift SemiBold';
+  color: #7E593F;
 }
 #header-h1{
   font-size: 60px;
+  font-family: 'Bahnschrift SemiBold';
+  color: #7E593F;
 }
 #header-links{
   position: relative;
@@ -48,7 +51,7 @@
   font-size: 15px;
   border-radius: 6px;
   background-color: #ffcab1;
-  box-shadow: 0 0 10px #ff8248, 0 0 4px #ff8248,0 0 80px #ff8248;
+  box-shadow: 0 0 10px #404969, 0 0 4px #404969,0 0 80px #404969;
   transition-delay: 0.1s;
   text-decoration: none;
   border-radius: 9px;
@@ -73,7 +76,7 @@
   font-size: 15px;
   border-radius: 6px;
   background-color: #ffcab1;
-  box-shadow: 0 0 10px #ff8248, 0 0 4px #ff8248,0 0 80px #ff8248;
+  box-shadow: 0 0 10px #404969, 0 0 4px #404969,0 0 80px #404969;
   transition-delay: 0.1s;
   text-decoration: none;
   border-radius: 9px;
@@ -125,6 +128,7 @@ position:absolute;
 transform:rotateY(180deg);
 backface-visibility:hidden;
 transition:all .4s linear;
+
 }
 .login-html .sign-in,
 .login-html .sign-up,
@@ -147,7 +151,7 @@ border-bottom:2px solid transparent;
 .login-html .sign-in:checked + .tab,
 .login-html .sign-up:checked + .tab{
 color:#fff;
-border-color:#ff8248;
+border-color:#404969;
 }
 .login-form{
 min-height:345px;
@@ -181,7 +185,7 @@ color:#aaa;
 font-size:12px;
 }
 .login-form .group .button{
-background:#ff8248;
+background:#404969;
 }
 .login-form .group label .icon{
 width:15px;
@@ -215,7 +219,7 @@ transform:scale(0) rotate(0);
 color:#fff;
 }
 .login-form .group .check:checked + label .icon{
-background:#ff8248;
+background:#404969;
 }
 .login-form .group .check:checked + label .icon:before{
 transform:scale(1) rotate(45deg);
@@ -375,7 +379,7 @@ color: #999;
   text-transform: uppercase;
   text-decoration: none;
   font-size: 13px;
-  background-color: #fd5e19;
+  background-color: #404969;
   overflow: hidden;
   transition: 0.2s;
 }
@@ -385,7 +389,7 @@ color: #999;
   font-size: 15px;
   border-radius: 6px;
   background-color: #ffcab1;
-  box-shadow: 0 0 10px #ff8248, 0 0 4px #ff8248,0 0 80px #ff8248;
+  box-shadow: 0 0 10px #404969, 0 0 4px #404969,0 0 80px #404969;
   transition-delay: 0.1s;
   text-decoration: none;
   border-radius: 9px;
