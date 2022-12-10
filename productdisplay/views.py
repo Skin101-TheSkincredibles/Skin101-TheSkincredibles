@@ -37,7 +37,7 @@ def filter_by(tags): #filter by tags
     return all_products.filter(tags__pk__in=tags)
 
 def show_all_products(request): #show all products in html
-  
+
     if request.method == 'POST':
         form = FilterForm(request.POST)
         if form.is_valid():
@@ -45,8 +45,11 @@ def show_all_products(request): #show all products in html
             tags = getPks(form)
 
             res = filter_by(tags).distinct().filter(type=type)
+  
             context = {'products':res, 'form':form}
             return render(request, 'index.html', context)
+        
+      
 
     else:
         form = FilterForm()

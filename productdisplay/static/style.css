@@ -12,6 +12,8 @@
 
    METTY
    https://codepen.io/Metty/pen/qBdRBLd
+
+   TOBIAS AHLIN for css box shadow
    */
 
 
@@ -47,16 +49,17 @@
         border-radius: 50%;
         width: 100%;
         align-items: center;
-        outline: 0.5rem solid khaki;
+        outline: 0.5rem solid rgb(0, 0, 0);
     }
 
     .text-chat{
        
-        background-color: slategrey;
+        background-color: rgb(161, 166, 171);
         width: 60%;
-        border-radius: 10%;
-        outline: 0.5rem solid khaki;
+        border-radius: 15px;
+        outline: 0.2rem solid rgb(0, 0, 0);
         margin-left: 20px;
+  
         
        
     }
@@ -200,6 +203,10 @@
       
      
     }
+
+    .product-card:hover {
+        transform: translateY(0) scale(1.2);
+      }
     
     .product-card {
         display: flex;
@@ -207,9 +214,9 @@
         margin:2%;
         padding: 2%;
         flex: 0 0 17%;
-        
+        box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
         background-color: #FFF;
-        box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.25);
+  
     }
     
     .product-image img {
