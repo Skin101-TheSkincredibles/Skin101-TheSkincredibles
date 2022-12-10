@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-uo=8n^bbtto&)&8*!mab%6au&ngk@t+i!9si)19r^%dbbc#9#r
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'web-production-bcb9.up.railway.app',
+    'skin101.up.railway.app',
 ]
 
 
@@ -62,7 +62,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'skin101.urls'
 CSRF_TRUSTED_ORIGINS = [
-    'web-production-bcb9.up.railway.app'
+    'skin101.up.railway.app'
 ]
 
 TEMPLATES = [
