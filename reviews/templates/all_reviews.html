@@ -1,38 +1,138 @@
-<div class="row">
-    <div class="col-md-9 mx-auto">
-        <h5 style="color: #C37B89">REVIEWS LIST:</h5>
-        <hr style="background-color: #cc526a; height: 2px">
-        <div class="card card-body" style="background-color: #d69ca8">
-            <a class="btn btn-light btn-outline-warning btn-sm btn-block" href="{% url 'create_review' %}">Add Review</a>
-            <form method="get">
-              {{myFilter.form}}
-           </form>
-            <table class="table table-sm">
-                <tr>
-                    <th class="teks-table">Image</th>
-                    <th class="teks-table">Product Name</th>
-                    <th class="teks-table">Username</th>
-                    <th class="teks-table">Skin Type</th>
-                    <th class="teks-table">Date Created</th>
-                    <th class="teks-table">See Detail</th>
-                    <th class="teks-table">Like</th>
-                    <th class="teks-table">Dislike</th>
-  
-                </tr>
-                {% for i in review %}
-                    <tr>
-                        <th><img src="{{ i.image.url }}" class="card-img-top rounded-circle" alt="profile picture"  style="max-height:80px;width:80px;object-fit: cover; border-radius: 1%;"></th>
-                        <th class="teks-table">{{i.nama_produk}}</th>
-                        <th class="teks-table">{{i.username}}</th>
-                        <th class="teks-table">{{i.tipe}}</th>
-                        
-                        <th class="teks-table">{{i.date_created}}</th>
-                        <th><a class="btn btn-sm btn-light btn-outline-warning" href="{% url 'review_detail' i.id %}">Detail</a></th>
-                        <th><a class="btn btn-sm btn-light btn-outline-warning" href="">Like</a></th>
-                        <th><a class="btn btn-sm btn-light btn-outline-danger" href="">Dislike</a></th>
-                    </tr>
-                {% endfor %}
-            </table>
+<style>
+
+    @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      background-color: #f7f8fc;
+      font-family: "Roboto", sans-serif;
+      color: #10182f;
+    }
+    .container {
+      display: flex;
+      width: 1040px;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
+    .card {
+      margin: 10px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      width: 300px;
+    }
+    .card-header img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px;
+      min-height: 250px;
+    }
+    
+    .tag {
+      background: #cccccc;
+      border-radius: 50px;
+      font-size: 12px;
+      margin: 0;
+      color: #fff;
+      padding: 2px 10px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .tag-teal {
+      background-color: #47bcd4;
+    }
+    .tag-purple {
+      background-color: #5e76bf;
+    }
+    .tag-pink {
+      background-color: #cd5b9f;
+    }
+    
+    .card-body p {
+      font-size: 13px;
+      margin: 0 0 40px;
+    }
+    .user {
+      display: flex;
+      margin-top: auto;
+    }
+    
+    .user img {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+    .user-info h5 {
+      margin: 0;
+    }
+    .user-info small {
+      color: #545d7a;
+    }
+    
+    .btn {
+        background-color: #2A265F;
+        border: 0;
+        border-radius: 30px;
+        color: #fff;
+        font-size: 13px;
+        padding: 6px 12px;
+        position: relative;
+        
+        letter-spacing: 1px;
+    }
+
+    .card-body a {
+	color: #4e5263;
+	display: inline-block;
+	font-size: 14px;
+	opacity: 0.6;
+	margin-top: 30px;
+	text-decoration: none;
+}
+    
+    </style>
+    
+    
+    <div class="container">
+    {% for i in review %}
+      <div class="card">
+        <div class="card-header">
+          <img src="{{ i.image.url }}" alt="rover" />
         </div>
-    </div>
-  </div>
+        <div class="card-body">
+          <span class="tag tag-teal">{{ i.tipe }}</span>
+          <a href="{% url 'review_detail' i.id %}">View review details > <i class="fas fa-chevron-right"></i></a>
+          <p>
+            {{ review.isi_review }}
+          </p>
+          <form action="{% url 'like_review' i.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit", name="review_id", value="{{ i.id }}", class="btn btn-primary btn-sm">Like</button> - {{ total_likes }} Likes
+            
+        </form>
+          <div class="user">
+      
+            <div class="user-info">
+              <h5>{{ i.username}}</h5>
+              <small>{{ i.date_created}}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      
+      </div>
