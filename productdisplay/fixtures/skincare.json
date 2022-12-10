@@ -48,6 +48,26 @@
         "price":"150000",
         "tags":[2]
       }
+    },
+    {
+      "model": "productdisplay.SkinCareItem",
+      "pk": 30,
+      "fields": {
+        "name": "Pixi Glow Tonic" ,
+        "type": "toner",
+        "price":"230000",
+        "tags":[5]
+	    }
+    },
+    {
+      "model": "productdisplay.SkinCareItem",
+      "pk": 31,
+      "fields": {
+        "name": "Wardah Lightening Face Toner" ,
+        "type": "toner",
+        "price":"25000",
+        "tags":[1,3,4,5]
+	    }
     }
 
   ]
