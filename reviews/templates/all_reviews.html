@@ -1,3 +1,6 @@
+{% load static %}
+{% block content %}
+
 <style>
 
     @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
@@ -173,10 +176,12 @@
     </section>
 
     <footer>
-    <div class="footer-container shadow p-3" style="background-color: #7A9EAF; bottom: 0px; top: 10px">
-      <p class="text-center footer-text" style="color: #D2C8C8; bottom: 0px;">
-          Made by The Skincredibles <br>
-          Copyright © 2022 RPL  University of Indonesia
-      </p>
-    </div>
-    </footer>
+      <div class="footer-container shadow p-3" style="background-color: #7A9EAF; bottom: 0px; top: 10px">
+        <p class="text-center footer-text" style="color: #D2C8C8; bottom: 0px;">
+            Made by The Skincredibles <br>
+            Copyright © 2022 RPL  University of Indonesia
+        </p>
+      </div>
+      </footer>
+
+    {% endblock content %}
