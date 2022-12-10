@@ -28,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'skin101.up.railway.app',
-    'localhost','localhost:8000',
 ]
 
 
@@ -49,7 +48,6 @@ INSTALLED_APPS = [
     'django_filters',
     'productdisplay',
     'quiz',
-    'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',
 ]
 
@@ -138,9 +136,9 @@ USE_TZ = True
 # Static asset configuration
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 #STATIC_ROOT = 'staticfiles'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Default primary key field type
@@ -153,9 +151,9 @@ MEDIA_URL = '/media/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static')
+# ]
 
 LOGIN_REDIRECT_URL = 'home'
 
