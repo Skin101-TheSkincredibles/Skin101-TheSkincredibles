@@ -25,15 +25,17 @@
 }
 #header-paragraph{
   font-size: 20px;
-  padding-top: 30px;
+  padding-top: 1px;
   font-weight: lighter;
-  font-family: 'Bahnschrift SemiBold';
+  font-family: 'Roboto';
   color: #7E593F;
 }
 #header-h1{
   font-size: 60px;
-  font-family: 'Bahnschrift SemiBold';
+  font-family: 'Roboto';
+  font-weight: bold;
   color: #7E593F;
+  font-weight: bold;
 }
 #header-links{
   position: relative;
@@ -43,18 +45,23 @@
   text-transform: uppercase;
   text-decoration: none;
   font-size: 13px;
-  overflow: hidden;
   transition: 0.2s;
 }
 #header-links:hover{
   color: #021f3b;
   font-size: 15px;
   border-radius: 6px;
-  background-color: #ffcab1;
+  background-color: #51629E;
   box-shadow: 0 0 10px #404969, 0 0 4px #404969,0 0 80px #404969;
   transition-delay: 0.1s;
   text-decoration: none;
   border-radius: 9px;
+}
+#a:hover{
+  color: white;
+  font-size: 25px;
+  transition-delay: 0.1s;
+  text-decoration: none;
 }
 #header-links:active{
   font-size: 10px;
@@ -68,14 +75,13 @@
   text-transform: uppercase;
   text-decoration: none;
   font-size: 13px;
-  overflow: hidden;
   transition: 0.2s;
 }
 #body-link-row:hover{
   color: #021f3b;
   font-size: 15px;
   border-radius: 6px;
-  background-color: #ffcab1;
+  background-color: #51629E;
   box-shadow: 0 0 10px #404969, 0 0 4px #404969,0 0 80px #404969;
   transition-delay: 0.1s;
   text-decoration: none;
@@ -267,7 +273,7 @@ left: 0;
 margin-right: auto;
 margin-left: auto;
 transform: translateY(-50%);
-overflow: hidden;
+
 display: flex;
 align-items: center;
 justify-content: center;
@@ -380,7 +386,7 @@ color: #999;
   text-decoration: none;
   font-size: 13px;
   background-color: #404969;
-  overflow: hidden;
+
   transition: 0.2s;
 }
 
@@ -388,9 +394,33 @@ color: #999;
   color: #021f3b;
   font-size: 15px;
   border-radius: 6px;
-  background-color: #ffcab1;
+  background-color: #51629E;
   box-shadow: 0 0 10px #404969, 0 0 4px #404969,0 0 80px #404969;
   transition-delay: 0.1s;
   text-decoration: none;
   border-radius: 9px;
+}
+
+nav ul li {
+  display: inline-flex;
+  list-style-type: none;
+  margin: 0;
+
+  float: left;
+  white-space: nowrap;
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+#ul-guest{display: inline-flex;
+  list-style-type: none;
+  margin: 0;
+  float: left;
+  white-space: nowrap;
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
 }

@@ -2,40 +2,37 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-<div class="justify-content-center flex-wrap" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); border-radius: 0.5%;">
-    <div class="card-header bg-light" style="text-align: center;">
-        <h2 style="color:#2d1f2c; padding: 1em 0 0.5em 0; text-align: center; font-weight: bolder;"> {{ user.profile.name }} Profile</h2>
-        <hr style="width:100%; text-align:center;">
-        <img src="{{ user.profile.avatar.url }}" class="card-img-top rounded-circle" alt="profile picture"  style="max-height:400px;width:350px;object-fit: cover; border-radius: 1%;">
-        <br>
-    <div class="card-body">
-        <h4 class="card-title" style="text-align: center; color: #1561A7;">@{{ user.username }}</h4>
-        <h4 class="card-title-desc" style="text-align: center; color: #2d1f2c;font-weight: bolder;">{{ user.profile.name }}</h4>
-        <a href= "/profile/edit-profile/" class="border-bottom btn btn-primary text-center"> Edit Profile</a>
-    </div>
-</div>
-    <div class="card">
-        <div class="card-body" style="text-align: center;">
-            <h3 class="card-title" style="text-align: center; color: #1561A7; font-weight:bolder;">About {{ user.profile.name }}</h3>
-            <hr style="width:100%; text-align:center;">
-            <div class="row">
-                <div class="col-sm-6" style="text-align: left;">
-                    <div class="card">
-                        <div class="card-header">
-                            <h6 class="card-text"><i class="fa fa-envelope" style="font-size:20px;color:#155FA4"></i><b>    {{ user.profile.email }}</b></h6>
-                            <hr style="width:100%; text-align:center;">
-                            <h6 class="card-text-acc"><b>account created:</b></h6>
-                            <p>{{ user.profile.created_at}}</p>
-                        </div>
-                    </div>
+{#    <div class="img" style="background-image: url(https://i.postimg.cc/G2Jkj5WH/11-1-1.png); height: 300px;background-size: cover;"></div>#}
+    <div class="img" style="background-color: white; opacity: 0%; height: 300px;background-size: cover;"></div>
+        <div class="card">
+            <div class="card-body" style=" width: 70%; margin: auto; margin-top: -150px;">
+                <div class="wrapper">
+                    <img src="{{ user.profile.avatar.url }}" class="card-img-top" alt="profile picture"  style="object-fit:cover; width: 250px; height: 250px; border-radius: 50%; margin: 0 auto -60px;display: block; margin: 0 auto;">
                 </div>
+            <div style="text-align: center; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; background-color: #E6E7E5; margin-top:30px; margin-left:180px; margin-right:180px">
+                <br>
+                <h3 style="color:#404969" class="card-title">{{ user.profile.name }}</h3>
+                <h5 style="color:#A3816A" class="card-text text-">@{{ user.username }}</h5>
+                <hr style="width:100%; text-align:center;">
+                <h6 class="card-text"><i class="fa fa-envelope" style="font-size:20px;color:#655989";></i><p style="color: #404969">{{ user.profile.email }}</p></h6>
+                <h6 class="card-text" style="color: #404969"> Joined since: </h6>
+                <p class="card-text text-secondary">{{ user.profile.created_at }}</p>
+                <br>
+                <a href= "/profile/edit-profile/" class="btn btn-outline-primary"> Edit Profile</a>
+                <br>
+                <br>
             </div>
         </div>
+    <div>
+    <footer>
+    <div class="footer-container shadow p-3" style="background-color: #7A9EAF; bottom: 0px; top: 10px">
+      <p class="text-center footer-text" style="color: #D2C8C8; bottom: 0px;">
+          Made by The Skincredibles <br>
+          Copyright © 2022 RPL  University of Indonesia
+      </p>
     </div>
-</div>
-
+    </footer>
 {% else %}
 <h4> Please signup or login to see more! </h4>
 {% endif %}
-
 {% endblock content %}
