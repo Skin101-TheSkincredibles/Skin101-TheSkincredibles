@@ -28,6 +28,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'skin101.up.railway.app',
+    '127.0.0.1',
+    'localhost',
+    'localhost:8000',
 ]
 
 
@@ -64,7 +67,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'skin101.urls'
 CSRF_TRUSTED_ORIGINS = [
-    'skin101.up.railway.app'
+    'https://skin101.up.railway.app'
 ]
 
 TEMPLATES = [
