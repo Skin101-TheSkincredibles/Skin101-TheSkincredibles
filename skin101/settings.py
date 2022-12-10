@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'userprofile.apps.UserprofileConfig',
     'autentikasi.apps.AutentikasiConfig',
     'crispy_forms',
+    'productdisplay',
+    'quiz'
 ]
 
 MIDDLEWARE = [

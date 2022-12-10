@@ -11,12 +11,13 @@
                 {% if user.is_superuser %}
                     <a href="../administrator/set-notification" class="btn" style="color: #D2C8C8; background-color: #404969; margin-bottom: 100px"type="submit" id="body-link-row">Set Notification</a>
                 {% else %}
-                    <a href="#" class="btn" style="color: #D2C8C8; background-color: #404969; margin-bottom: 180px;" type="submit" id="body-link-row">Take your Quiz! </a>
+                    <a href="{% url 'start_session' %}" class="btn" style="color: #D2C8C8; background-color: #404969; margin-bottom: 180px;" type="submit" id="body-link-row">Take your Quiz! </a>
                 {% endif %}
             </center>
       </div>
     </div>
   </div>
+  </body>
     <footer>
     <div class="footer-container shadow p-3" style="background-color: #7A9EAF; bottom: 0px; top: 10px">
       <p class="text-center footer-text" style="color: #D2C8C8; bottom: 0px;">
