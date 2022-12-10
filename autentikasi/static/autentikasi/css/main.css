@@ -1,3 +1,367 @@
+/*TES DOANG */
+
+  
+/* STYLE PRODUCT DISPLAY */
+
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+    
+
+/* Typography */
+
+.display-chat{
+    display: flex;
+    flex-direction: row;
+    text-align: center; 
+    
+    
+
+}
+
+.avatar{
+    width: 25%;
+}
+.avaimg{
+    border-radius: 50%;
+    width: 100%;
+    align-items: center;
+    outline: 0.5rem solid rgb(0, 0, 0);
+}
+
+.text-chat{
+   
+    background-color: rgb(161, 166, 171);
+    width: 60%;
+    border-radius: 15px;
+    outline: 0.2rem solid rgb(0, 0, 0);
+    margin-left: 20px;
+
+    
+   
+}
+
+
+.text-content p{
+
+    font-family: 'Roboto'; 
+    font-size: 40px;
+    
+}
+
+
+.product-filter h1 {
+    margin-top: 55px;
+    text-align: center;
+    font-family: 'Roboto'; 
+    font-size: 50px;
+    font-weight: 600;
+    flex: 1;
+    color: #404969;
+    
+}
+
+.out-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.fill{
+    font-size: 20px;
+    color: #FFF;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 13px 50px 13px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  
+  .lineUp {
+    animation: 2s anim-lineUp ease-out;
+    font-size: 13px;
+  }
+  @keyframes anim-lineUp {
+    0% {
+      opacity: 0;
+      transform: translateX(80%);
+    }
+    20% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+  
+  
+  .fill::after {
+    content: "";
+    background-color: #404969;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.2s;
+  }
+  
+  .fill:hover::after {
+    top: 0px;
+    left: 0px;
+  }
+
+.collection-sort:first-child {
+    padding-right: 20px;
+}
+
+.product-display label {
+    color: #666;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 2em;
+    text-transform: uppercase;
+}
+
+/* Product Layout */
+
+.product-filter {
+    display: flex;
+    padding: 30px 0;
+}
+
+.sort {
+    display: flex;
+    align-self: flex-end;
+    flex-direction: row;
+}
+
+.collection-sort {
+ display: flex;
+    flex-direction: column;
+}
+
+
+
+.col-container{
+    display: flex;
+   flex-direction: column;
+   
+}
+
+.checklist-box {
+    flex-direction: column;
+
+}
+
+.collection-sort:first-child {
+    padding-right: 20px;
+}
+
+.product-display label {
+    color: #666;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 2em;
+    text-transform: uppercase;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 100%;
+  
+ 
+}
+
+.product-card:hover {
+    transform: translateY(0) scale(1.2);
+  }
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    margin:2%;
+    padding: 2%;
+    flex: 0 0 17%;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    background-color: #FFF;
+
+}
+
+.product-image img {
+    width: 100%;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.product-info h1{
+  font-family: 'Bentham', serif;
+  color: #000;
+  font-size: 25px;
+ 
+  
+}
+
+.product-info h2 {
+  margin: 10px;
+  font-size: 13px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800px;
+  text-transform: uppercase;
+  color: #b0aeae;
+  letter-spacing: 0.2em;
+}
+
+.product-price-btn button {
+  
+    display: inline-block;
+    height: 50px;
+    width: 176px;
+    margin: 10px;
+    box-sizing: border-box;
+    border: transparent;
+    border-radius: 60px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #ffffff;
+    background-color: #404969;
+    outline: none;
+  }
+
+.btn-cute{
+  
+    width: 250px;
+    box-sizing: border-box;
+    border: transparent;
+    border-radius: 60px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #ffffff;
+    background-color: #b60d0d;
+    outline: none;
+
+}
+
+.tag {
+  margin-top: 10px;
+    display: inline-block;
+    border-radius: 3px;
+    padding: .2em .5em .3em;
+    border-radius: 2px;
+    background: var(--tag-bg);
+    color: var(--text-color);
+    font-weight: 600;
+
+}
+
+.tag-dry {
+    background: #7b84d4;
+    color: #000
+}
+
+.tag-oily {
+    background: #e9f984;
+    color: #000
+}
+.tag-sensitive {
+    background: #00FFFF;
+    color: rgb(0, 0, 0)
+}
+.tag-normal {
+    background: #21991b;
+    color: #000
+}
+.tag-acne {
+    background: #e857d3;
+    color: #000
+}
+
+
+
+.tag-lg {
+    font-size: 1.1em;
+    border-radius: 4px
+}
+
+@media ( max-width: 920px ) {
+    
+    .product-card {
+        flex: 1 21%;
+    }
+    
+    .products .product-card:first-child, 
+    .products .product-card:nth-child(2) {
+        flex: 2 46%;
+    }
+    
+}
+
+@media ( max-width: 600px ) {
+    
+    .product-card {
+        flex: 1 46%;
+    }
+    
+}
+
+@media ( max-width: 480px ) {
+    
+    h1 {
+        margin-bottom: 20px;
+        
+    }
+    
+    .product-filter {
+        flex-direction: column;
+    }
+    
+    .sort {
+        align-self: flex-start;
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* STYLE BUAT AUTH-NAVBAR */
+
+
 #bg{
   background-repeat: no-repeat;
   background-size: cover;
