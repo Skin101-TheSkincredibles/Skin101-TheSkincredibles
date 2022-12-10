@@ -1,0 +1,207 @@
+{% extends 'autentikasi/base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+
+    @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+    * {
+      box-sizing: border-box;
+    }
+    section{  
+    
+    padding:15px;  
+    margin:10px;  
+    } 
+
+    header {
+      display: flexbox;
+      justify-content: space-evenly;
+      align-items: center;
+      text-align: center;
+      margin: 20;
+      background-color: #f7f8fc;
+      font-family: "Roboto", sans-serif;
+      color: #10182f;
+    }
+    
+    body {
+      display: flexbox;
+      justify-content: space-evenly;
+      align-items: center;
+      margin: 20;
+      background-color: #f7f8fc;
+      font-family: "Roboto", sans-serif;
+      color: #10182f;
+    }
+    .container {
+      display: flex;
+      width: 1040px;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
+    .card {
+      margin: 10px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      width: 300px;
+    }
+    .card-header img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px;
+      min-height: 250px;
+    }
+    
+    .tag {
+      background: #cccccc;
+      border-radius: 50px;
+      font-size: 12px;
+      margin: 0;
+      color: #fff;
+      padding: 2px 10px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .tag-teal {
+      background-color: #47bcd4;
+    }
+    .tag-purple {
+      background-color: #5e76bf;
+    }
+    .tag-pink {
+      background-color: #cd5b9f;
+    }
+    
+    .card-body p {
+      font-size: 13px;
+      margin: 0 0 40px;
+    }
+    .user {
+      display: flex;
+      margin-top: auto;
+    }
+    
+    .user img {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+    .user-info h5 {
+      margin: 0;
+    }
+    .user-info small {
+      color: #545d7a;
+    }
+    
+    .btn {
+        background-color: #2A265F;
+        border: 0;
+        border-radius: 30px;
+        color: #fff;
+        font-size: 13px;
+        padding: 6px 12px;
+        position: relative;
+        
+        letter-spacing: 1px;
+    }
+
+    .card-body a {
+	color: #A3816A;
+	display: inline-block;
+	font-size: 14px;
+	opacity: 0.6;
+	margin-top: 30px;
+	text-decoration: none;
+}
+
+.container1 {
+      display: flex;
+      width: 1040px;
+      align-items: center;
+      text-align: center;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .h1{
+      
+      
+      text-align: center;
+    }
+    
+    
+    </style>
+    <section>
+      <h1>Product Review</h1>
+    </section>
+    <section>
+      <div class="container1">
+
+        
+      
+        <a class="btn btn-light btn-outline-warning btn-sm btn-block" href="{% url 'create_review' %}">Add Review</a>
+            <form method="get">
+              {{myFilter.form}}
+           </form>
+      </div>
+    </section>
+    
+    <section>
+    <div class="container">
+      
+    {% for i in review %}
+      <div class="card">
+        <div class="card-header">
+          <img src="{{ i.image.url }}" alt="rover" />
+        </div>
+        <div class="card-body">
+          <span class="tag tag-teal">{{ i.tipe }}</span>
+          <h4>
+            {{ i.nama_produk }}
+          </h4>
+          <p>
+            <a href="{% url 'review_detail' i.id %}">View review details <i class="fas fa-chevron-right"></i></a>
+          </p>
+          
+          
+          <form action="{% url 'like_review' i.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit", name="review_id", value="{{ i.id }}", class="btn btn-primary btn-sm">Like</button> - {{ i.total_likes }} Likes
+            
+        </form>
+          <div class="user">
+      
+            <div class="user-info">
+              <h5>{{ i.username}}</h5>
+              <small>{{ i.date_created}}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-container shadow p-3" style="background-color: #7A9EAF; bottom: 0px; top: 10px">
+        <p class="text-center footer-text" style="color: #D2C8C8; bottom: 0px;">
+            Made by The Skincredibles <br>
+            Copyright © 2022 RPL  University of Indonesia
+        </p>
+      </div>
+      </footer>
+
+{% endblock content %}
