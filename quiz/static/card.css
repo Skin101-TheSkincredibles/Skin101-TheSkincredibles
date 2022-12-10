@@ -1,4 +1,4 @@
-
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
 
   input[type=submit] {
     width: 100%;
@@ -19,14 +19,14 @@
 
   .card {
     /*ima: url("sea.jpg");*/
-    font-family: "Georgia";
-    color: #83d2ff;
+    font-family: "Roboto";
+    color: #404969;
 
     /* Add shadows to create the "card" effect */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     width: 50%;
-    background-color: rgba(0, 0, 0, 0.644);
+    background-color: #E6E7E5;
     /*align-items: center;*/
     margin: 10;
     position: absolute;
@@ -48,7 +48,7 @@
   }
 
   body {
-    background-image: url("bg1.jpg");
+    background-image: url('bg.jpg');
     background-color: #cccccc;
    }
 
