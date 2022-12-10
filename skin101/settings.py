@@ -61,7 +61,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'skin101.urls'
-CORS_ALLOW_ALL_ORIGINS = True
+CSRF_TRUSTED_ORIGINS = [
+    'web-production-bcb9.up.railway.app'
+]
 
 TEMPLATES = [
     {
