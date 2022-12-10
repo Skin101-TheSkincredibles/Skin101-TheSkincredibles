@@ -1,0 +1,24 @@
+<!-- Modal Popup Announcement -->
+{% block content %}
+<div class="modal fade" id="notificationModal" data-keyboard="false" data-backdrop="static" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Notification</h4>
+        <button class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">}
+        <h5 style="text-align: center;">{{title}}</h5>
+        <p style="text-align: center;" id="notificationTitle"></p>
+        <br>
+        <h5 style="text-align: center;">{{messages}}</h5>
+        <p style="text-align: center;" id="notificationtMessage"></p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-info" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end modal -->
+{% endblock %}

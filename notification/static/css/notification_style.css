@@ -1,0 +1,122 @@
+body#notification {
+  margin: 0;
+  padding: 0;
+  background-color: #58718e;
+}
+
+header#notification{
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  padding: 0px 2%;
+  background-color: #83aae1;
+}
+
+li#notification, a#notification, button#notification{
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+anotification, button#notification {
+  transition: all 0.3s ease 0s;
+}
+
+.navibar#notification {
+  overflow: hidden;
+  background-color: #83aae1;
+  list-style-type: none;
+}
+
+.navibar#notification li#notification {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.navibar#notification li#notification a#notification:hover {
+  color: #2d1f2b;
+}
+
+.logo {
+  width: 134px;
+  height: 56px;
+  cursor: pointer;
+}
+
+button#notification {
+  padding: 9px 25px;
+  background-color: #c42d4a;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+button#notification:hover {
+  color: #2d1f2b;
+}
+
+.drop#notification {
+  overflow: hidden;
+}
+
+.drop#notification .dbutton#notification {
+  padding: 5px 15px;
+  margin: 0;
+}
+
+.drop#notification:hover .dbutton#notification {
+  color: #2d1f2b;
+}
+
+.dcontent#notification {
+  display: none;
+  position: absolute;
+  background-color: #83aae1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dcontent#notification a#notification {
+  padding: 12px 16px;
+  color: #ffffff;
+  background-color: #58718e;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dcontent#notification a#notification:hover {
+  background-color: #ffffff;
+  color: #2d1f2b;
+}
+
+.drop#notification:hover .dcontent#notification {
+  display: block;
+}
+
+.form-container{
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0px 0px 10px 0px;
+  background-color: #ffffff;
+  margin-top: 30%;
+}
+
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About

@@ -1,0 +1,17 @@
+<!-- Choosing navbar based on roles (Guest, User, or Admin) -->
+{% if user.is_authenticated %}
+
+	<!-- Admin -->
+  {% if user.is_superuser %}
+    {% include 'navbar_admin.html' %}
+
+  <!-- User -->
+  {% else %}
+    {% include 'navbar_user.html' %}
+  {% endif %}
+
+<!-- Guest -->
+{% else %}
+  {% include 'navbar_guest.html' %}
+
+{% endif %}

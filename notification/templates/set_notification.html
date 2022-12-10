@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Skin101 - Make Skincare Notification </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/notification_styles.css' %}" />
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </head>
+  <body id="notification">
+    {% include 'navbar_roles.html' %}
+
+    <!-- Make Notification -->
+    <section class="container-fluid">
+      <section class="row justify-content-center">
+        <section class="col-12 col-sm-6 col-md-3">
+          <form action="" method="POST" id="postformnotif" class="form-container">
+              {% csrf_token %}
+              <br>
+              <div class="card" style="width: 50rem; margin-top: 30px; margin-left: -230px; padding-left: 20px; padding-right: 20px; padding-bottom: 30px; padding-top: 20px">
+                  <h4 class="text-center font-weight-bold" style="color: #404969;">Set Notification</h4>
+                  <br>
+                  <div class="form-group">
+                    <input id="id_title" class="form-control" width="75%" type="text" name="title" required="true" placeholder="Title" />
+                  </div>
+                  <div class="form-group">
+                      <input id="id_messages" class="form-control" width="75%" type="text" name="messages" required="true" placeholder="Messages" />
+                  </div>
+                  <br>
+                  <div class="d-flex justify-content-center">
+                    <div class="order-1 p-2">
+                      <button class="btn btn-outline-primary" type="submit" id="btnsavess" value="POST" style="padding-bottom: 10px">Post</button>
+                    </div>
+                    <div class="order-2 p-2">
+                      <a href="/home" class="btn btn-outline-danger" id="btnsave" value="POST" style="padding-bottom: 10px">Cancel</a>
+                    </div>
+                </div>
+              </div>
+          </form>
+        </section>
+      </section>
+    </section>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $(document).on("submit", "#postformnotif", function(e){
+            e.preventDefault();
+            var serializedData = $(this).serialize();
+            var response = "";
+            $.ajax ({
+                type : 'POST',
+                url : "{% url 'set-notification' %}",
+                data : serializedData,
+                success : function(response){
+                     $("#id_title").val(response["title"]);
+                     $("#id_messages").val(response["messages"]);
+                     console.log("checking notif ajax..")
+                     alert("New notification has been published!")
+                     window.location.href = "../home";
+                },
+                error : function(response){
+                    console.log(response)
+                }
+            });
+
+        });
+    });
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </body>
+</html>

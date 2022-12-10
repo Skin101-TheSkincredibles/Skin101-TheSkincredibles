@@ -1,0 +1,125 @@
+
+{% load static %}
+
+<title>Skincare Quiz!</title>
+
+<th>Skincare Quiz!</th>
+
+<link rel="stylesheet" type="text/css" href="{% static 'card.css' %}">
+
+<form action="/quiz/" method="post">
+    {% csrf_token %}
+
+
+    <div class="card" id ="1">
+        <div style="font-size:30px"> - - - &nbsp;&nbsp;&nbsp; Apa produk yang kamu cari? &nbsp;&nbsp;&nbsp; - - - </div>
+        {{ form.type }}
+    </div>
+
+    <div hidden id = "2" class="card">
+        <div style="font-size:30px"> - - - &nbsp;&nbsp;&nbsp; Apa kulitmu berminyak? &nbsp;&nbsp;&nbsp; - - - </div>
+        {{ form.oily }}
+    </div>
+
+    <div hidden id = "3" class="card"> 
+        <div style="font-size:30px"> - - - Apa kulitmu mudah merah atau sering iritasi? - - - </div>
+        {{ form.sensitive }}
+    </div>
+
+    <div hidden id = "4" class="card"> 
+        <div style="font-size:30px"> - - - &nbsp;&nbsp;&nbsp; Apa kulitmu gampang berjerawat? &nbsp;&nbsp;&nbsp; - - - </div>
+        {{ form.acne }}
+    </div>
+
+    <div hidden id = "5" class="card"> 
+        <div style="font-size:30px"> - - - Apakah kulitmu sering kering atau bersisik? - - - </div>
+        {{ form.dry }}
+    </div>
+
+    <input hidden id = "6" type="submit" value="Submit" class="card">
+
+
+    <button onclick="prev()">Previous</button>
+    <button onclick="next()">Next</button>
+
+
+</form>
+
+
+
+
+<script>
+
+    let ids = "1"
+
+    function next() {
+        var x = document.getElementById(ids);
+        x.style.display = "none"
+        
+        switch(ids) {
+
+            case "1":
+                ids = "2"
+                break;
+
+            case "2":
+                ids = "3"
+                break;
+
+            case "3":
+                ids = "4"
+                break;
+    
+            case "4":
+                ids = "5"
+                break;
+
+            case "5":
+                //stay, nanti tunjukkin submit aja, hilangin button
+                ids = "6"
+            default:
+              break;
+          }
+        
+        var y = document.getElementById(ids);
+        y.style.display = "block"
+      }
+
+
+      function prev() {
+        var x = document.getElementById(ids);
+        x.style.display = "none"
+        
+        switch(ids) {
+
+            case "1":
+                ids = "1"
+                break;
+
+            case "2":
+                ids = "1"
+                break;
+
+            case "3":
+                ids = "2"
+                break;
+    
+            case "4":
+                ids = "3"
+                break;
+
+            case "5":
+                //stay, nanti tunjukkin submit aja, hilangin button
+                ids = "4"
+                break;
+            default:
+                ids = "5"
+                break;
+          }
+        
+        var y = document.getElementById(ids);
+        y.style.display = "block"
+        
+      }
+
+</script>
