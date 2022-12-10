@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'skin101.up.railway.app',
+    'localhost','localhost:8000',
 ]
 
 
