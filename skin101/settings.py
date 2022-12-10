@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'userprofile.apps.UserprofileConfig',
     'autentikasi.apps.AutentikasiConfig',
     'crispy_forms',
+    'reviews',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
