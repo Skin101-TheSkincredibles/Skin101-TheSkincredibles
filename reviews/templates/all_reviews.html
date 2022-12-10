@@ -4,11 +4,28 @@
     * {
       box-sizing: border-box;
     }
-    body {
-      display: flex;
-      justify-content: center;
+    section{  
+    
+    padding:15px;  
+    margin:10px;  
+    } 
+
+    header {
+      display: flexbox;
+      justify-content: space-evenly;
       align-items: center;
-      margin: 0;
+      text-align: center;
+      margin: 20;
+      background-color: #f7f8fc;
+      font-family: "Roboto", sans-serif;
+      color: #10182f;
+    }
+    
+    body {
+      display: flexbox;
+      justify-content: space-evenly;
+      align-items: center;
+      margin: 20;
       background-color: #f7f8fc;
       font-family: "Roboto", sans-serif;
       color: #10182f;
@@ -105,9 +122,22 @@
 }
     
     </style>
+    <header class="w3-container w3-center w3-padding-32"> 
+      <h1><b>Product Review</b></h1>
+      <p>Share your thoughts here </p>
+    </header>
+    <section>
+      <div class="container1">
+        <a class="btn btn-light btn-outline-warning btn-sm btn-block" href="{% url 'create_review' %}">Add Review</a>
+            <form method="get">
+              {{myFilter.form}}
+           </form>
+      </div>
+    </section>
     
-    
+    <section>
     <div class="container">
+      
     {% for i in review %}
       <div class="card">
         <div class="card-header">
@@ -115,13 +145,17 @@
         </div>
         <div class="card-body">
           <span class="tag tag-teal">{{ i.tipe }}</span>
-          <a href="{% url 'review_detail' i.id %}">View review details > <i class="fas fa-chevron-right"></i></a>
+          <h4>
+            {{ i.nama_produk }}
+          </h4>
           <p>
-            {{ review.isi_review }}
+            <a href="{% url 'review_detail' i.id %}">View review details > <i class="fas fa-chevron-right"></i></a>
           </p>
+          
+          
           <form action="{% url 'like_review' i.id %}" method="POST">
             {% csrf_token %}
-            <button type="submit", name="review_id", value="{{ i.id }}", class="btn btn-primary btn-sm">Like</button> - {{ total_likes }} Likes
+            <button type="submit", name="review_id", value="{{ i.id }}", class="btn btn-primary btn-sm">Like</button> - {{ i.total_likes }} Likes
             
         </form>
           <div class="user">
@@ -136,3 +170,4 @@
       {% endfor %}
       
       </div>
+    </section>
